@@ -1,0 +1,34 @@
+PROJECT TASKS
+1. System Analysis and Planning
+    • Identify problem
+    • System proposal
+    • Requirement analysis
+      -requirement gathering
+      -requirement specification
+    • Analyze projects feasibility
+      -technical feasibility
+      -economic feasibility
+      -organization
+2. System Design
+    • Select Design Strategy 
+    • Architecture System Design
+    • User Interface Design 
+        ◦ Design Interface Structure 
+        ◦ Develop Interface Standards 
+        ◦ Design Interface Prototype 
+        ◦ Evaluate User Interface 
+    • Program Design 
+        ◦ Develop Physical Data Flow Diagram 
+        ◦ Develop Program Structure Charts 
+        ◦ Develop Program Specifications 
+    • Data Storage Design 
+        ◦ Database Design
+        ◦ Storage Format
+3. System Implemenation
+    • Actual code writing 
+    • Deployment
+4. System Testing
+    • Testing System Software 
+    • Training Users 
+5. Maintanance
+      . Delivery report of the system 
