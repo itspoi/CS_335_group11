@@ -1,1 +1,1 @@
-# Online Tourist Reservation System
+# TOURISM RESERVATION SYSTEM
