@@ -157,7 +157,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="" class="nav-link {{ request()->is('admin-user*') ? 'active' : '' }}">
+            <a href="{{ url("admin-user")}}" class="nav-link {{ request()->is('admin-user*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-user"></i>
               <p>
                 Users
@@ -276,5 +276,36 @@
     <script src="{{ asset('adminlte/plugins/datatables-buttons/js/buttons.boostrap4.js') }}"></script>
     <script src="{{ asset('adminlte/plugins/datatables-buttons/css/buttons.boostrap4.css') }}"></script>
 
+    <!-- page script -->
+<script>
+  $(function () {
+    $("#users").DataTable({
+      "scrollX": true,
+      "aaSorting": []
+    });
+    $("#payments").DataTable({
+      "scrollX": true,
+      "aaSorting": []
+    });
+    $("#settings").DataTable({
+      "scrollX": true,
+      "aaSorting": []
+    });
+    $("#packages").DataTable({
+      "responsive": true,
+      "autoWidth": false,
+      "aaSorting": []
+    });
+    
+
+    //Initialize Select2 Elements
+    $('.select2').select2();
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    });
+  });
+  </script>
 </body>
 </html>
