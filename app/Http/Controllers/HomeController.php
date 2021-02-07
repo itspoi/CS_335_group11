@@ -17,12 +17,22 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Show the user application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function adminIndex()
     {
-        return view('home');
+        return view('admin.home');
+    }
+
+    /**
+     * Show the user application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function trsIndex()
+    {
+        return view('trs.home');
     }
 }
