@@ -141,7 +141,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ url("admin-hotel")}}" class="nav-link {{ request()->is('admin-enterprise*') ? 'active' : '' }}">
+            <a href="{{ url("admin-hotel")}}" class="nav-link {{ request()->is('admin-hotel*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-hotel"></i>
               <p>
                 Hotels
@@ -149,7 +149,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="" class="nav-link {{ request()->is('admin-senderid*') ? 'active' : '' }}">
+            <a href="{{ url("admin-transport")}}" class="nav-link {{ request()->is('admin-transport*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-bus-alt"></i>
               <p>
                 Transport

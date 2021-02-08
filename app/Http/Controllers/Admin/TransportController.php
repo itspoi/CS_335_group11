@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Hotel;
+use App\Models\Transport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Auth;
 Use Hash;
 
-class HotelController extends Controller
+class TransportController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +18,9 @@ class HotelController extends Controller
      */
     public function index()
     {
-        $hotels = Hotel::all();
+        $transports = Transport::all();
 
-        return view('admin.hotels.index', compact('hotels'));
+        return view('admin.transports.index', compact('transports'));
     }
 
     /**
@@ -30,7 +30,7 @@ class HotelController extends Controller
      */
     public function create()
     {
-        return view('admin.hotels.create');
+        return view('admin.transports.create');
     }
 
     /**
@@ -43,9 +43,6 @@ class HotelController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|string|max:255',
-            'mobile_number' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email',
-            'address' => 'required',
             'type' => 'required',
             'charges' => 'required',
             'picture' => 'required',
@@ -66,23 +63,19 @@ class HotelController extends Controller
 
         }
   
-          $hotel = Hotel::create([
-            'name' => $request['name'],
-            'mobile_number' => $request['mobile_number'],
-            'email' => $request['email'],
-            'address' => $request['address'],
+          $transport = Transport::create([
             'type' => $request['type'],
             'charges' => $request['charges'],
             'picture' => $picture_loac,
           ]);
 
-          return $this->index()->with('success','Hotel added successfully.');
+          return $this->index()->with('success','Transport added successfully.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Hotel  $hotel
+     * @param  \App\Models\Transport  $transport
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -93,49 +86,45 @@ class HotelController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Hotel  $hotel
+     * @param  \App\Models\Transport  $transport
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $hotelid = decrypt($id);
-        $hotel = Hotel::find($userid);
+        $transportid = decrypt($id);
+        $transport = Transport::find($userid);
 
-        return view('admin.hotels.edit' , compact('hotel'));
+        return view('admin.transports.edit' , compact('transport'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Hotel  $hotel
+     * @param  \App\Models\Transport  $transport
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $hotel=Hotel::find($id);
-        $hotel->name = $request->name;
-        $hotel->mobile_number = $request->mobile_number;
-        $hotel->email =$request->email;
-        $hotel->address = $request->address;
-        $hotel->type = $request->type;
-        $hotel->charge = $request->charge;
-        $hotel->save();
+        $transport = Transport::find($id);
+        $transport->type = $request->type;
+        $transport->charge = $request->charge;
+        $transport->save();
     
-        return  $this->index()->with('success',' Hotel Information is updated successfully.');
+        return  $this->index()->with('success',' Transport Information is updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Hotel  $hotel
+     * @param  \App\Models\Transport  $transport
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $hotel = Hotel::find(decrypt($id));
-        $hotel->delete(); 
+        $transport = Transport::find(decrypt($id));
+        $transport->delete(); 
         
-        return redirect()->back()->with('success','Hotel Deleted successfully');
+        return redirect()->back()->with('success','Transport Deleted successfully');
     }
 }

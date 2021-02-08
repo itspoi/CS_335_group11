@@ -43,4 +43,11 @@ Route::get('admin-hotel/edit/{id}', 'App\Http\Controllers\Admin\HotelController@
 Route::post('admin-hotel/update/{id}', 'App\Http\Controllers\Admin\HotelController@update')->name('admin-hotel.update');
 Route::delete('admin-hotel/destroy/{id}' , 'App\Http\Controllers\Admin\HotelController@destroy');
 
+Route::get('admin-transport', 'App\Http\Controllers\Admin\TransportController@index');
+Route::get('admin-transport/create', 'App\Http\Controllers\Admin\TransportController@create');
+Route::post('admin-transport/store', 'App\Http\Controllers\Admin\TransportController@store')->name('admin-transport.store');
+Route::get('admin-transport/edit/{id}', 'App\Http\Controllers\Admin\TransportController@edit');
+Route::post('admin-transport/update/{id}', 'App\Http\Controllers\Admin\TransportController@update')->name('admin-transport.update');
+Route::delete('admin-transport/destroy/{id}' , 'App\Http\Controllers\Admin\TransportController@destroy');
+
 Route::get('trs-home', 'App\Http\Controllers\HomeController@trsIndex')->name('trs-home');
