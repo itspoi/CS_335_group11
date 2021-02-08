@@ -96,7 +96,7 @@
     <a href="{{ url('home')}}" class="brand-link bg-warning">
       <img src="{{ asset('images/logoIcon.png') }}" alt="Tourism Reservation Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-bold">Tourism Reservation</span>
+      <span class="brand-text font-weight-bold" style="font-size: 18px;">Tourism Reservation</span>
     </a>
 
     <!-- Sidebar -->
@@ -133,7 +133,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link {{ request()->is('admin-account*') ? 'active' : '' }}">
+            <a href="{{ url("admin-place")}}" class="nav-link {{ request()->is('admin-place*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-map-marked-alt"></i>
               <p>
                 Tour Places

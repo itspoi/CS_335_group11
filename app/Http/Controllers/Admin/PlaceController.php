@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Hotel;
 use Illuminate\Http\Request;
+use App\Models\Place;
 use Illuminate\Support\Facades\Crypt;
 use Auth;
 Use Hash;
 
-class HotelController extends Controller
+class PlaceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +18,9 @@ class HotelController extends Controller
      */
     public function index()
     {
-        $hotels = Hotel::all();
+        $places = Place::all();
 
-        return view('admin.hotels.index', compact('hotels'));
+        return view('admin.places.index', compact('places'));
     }
 
     /**
@@ -30,7 +30,7 @@ class HotelController extends Controller
      */
     public function create()
     {
-        return view('admin.hotels.create');
+        return view('admin.places.create');
     }
 
     /**
@@ -43,10 +43,8 @@ class HotelController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|string|max:255',
-            'mobile_number' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email',
+            'description' => 'required|string',
             'address' => 'required',
-            'type' => 'required',
             'charges' => 'required',
             'picture' => 'required',
           ]);
@@ -68,21 +66,20 @@ class HotelController extends Controller
   
           $hotel = Hotel::create([
             'name' => $request['name'],
-            'mobile_number' => $request['mobile_number'],
+            'descriptiopn' => $request['description'],
             'email' => $request['email'],
             'address' => $request['address'],
-            'type' => $request['type'],
             'charges' => $request['charges'],
             'picture' => $picture_loac,
           ]);
 
-          return $this->index()->with('success','Hotel added successfully.');
+          return $this->index()->with('success','Place added successfully.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Hotel  $hotel
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -93,49 +90,48 @@ class HotelController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Hotel  $hotel
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $hotelid = decrypt($id);
-        $hotel = Hotel::find($hotelid);
+        $placeid = decrypt($id);
+        $place = Hotel::find($placeid);
 
-        return view('admin.hotels.edit' , compact('hotel'));
+        return view('admin.places.edit' , compact('place'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Hotel  $hotel
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $hotel=Hotel::find($id);
-        $hotel->name = $request->name;
-        $hotel->mobile_number = $request->mobile_number;
-        $hotel->email =$request->email;
-        $hotel->address = $request->address;
-        $hotel->type = $request->type;
-        $hotel->charge = $request->charge;
-        $hotel->save();
+        $place = Place::find($id);
+        $place->name = $request->name;
+        $place->description = $request->description;
+        $place->email =$request->email;
+        $place->address = $request->address;
+        $place->charge = $request->charge;
+        $place->save();
     
-        return  $this->index()->with('success',' Hotel Information is updated successfully.');
+        return  $this->index()->with('success',' Place Information is updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Hotel  $hotel
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $hotel = Hotel::find(decrypt($id));
-        $hotel->delete(); 
+        $place = Place::find(decrypt($id));
+        $place->delete(); 
         
-        return redirect()->back()->with('success','Hotel Deleted successfully');
+        return redirect()->back()->with('success','Place Deleted successfully');
     }
 }

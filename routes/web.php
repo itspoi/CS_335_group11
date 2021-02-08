@@ -50,4 +50,11 @@ Route::get('admin-transport/edit/{id}', 'App\Http\Controllers\Admin\TransportCon
 Route::post('admin-transport/update/{id}', 'App\Http\Controllers\Admin\TransportController@update')->name('admin-transport.update');
 Route::delete('admin-transport/destroy/{id}' , 'App\Http\Controllers\Admin\TransportController@destroy');
 
+Route::get('admin-place', 'App\Http\Controllers\Admin\PlaceController@index');
+Route::get('admin-place/create', 'App\Http\Controllers\Admin\PlaceController@create');
+Route::post('admin-place/store', 'App\Http\Controllers\Admin\PlaceController@store')->name('admin-place.store');
+Route::get('admin-place/edit/{id}', 'App\Http\Controllers\Admin\PlaceController@edit');
+Route::post('admin-place/update/{id}', 'App\Http\Controllers\Admin\PlaceController@update')->name('admin-place.update');
+Route::delete('admin-place/destroy/{id}' , 'App\Http\Controllers\Admin\PlaceController@destroy');
+
 Route::get('trs-home', 'App\Http\Controllers\HomeController@trsIndex')->name('trs-home');
