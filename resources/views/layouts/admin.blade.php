@@ -141,7 +141,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link {{ request()->is('admin-enterprise*') ? 'active' : '' }}">
+            <a href="{{ url("admin-hotel")}}" class="nav-link {{ request()->is('admin-enterprise*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-hotel"></i>
               <p>
                 Hotels
