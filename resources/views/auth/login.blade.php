@@ -2,8 +2,6 @@
 @extends('layouts.app')
 
 @section('content')
-
-
 <div class="login-box">
   <div class="login-logo">
     <a href="{{ url('/') }}"><b>Tourism Reservation</b></a>
