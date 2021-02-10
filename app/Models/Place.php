@@ -15,4 +15,9 @@ class Place extends Model
      * @var array
      */
     protected $guarded = [];
+
+    public function packages()
+    {
+        return $this->hasMany('App\Models\Package')->orderBy('updated_at','DESC');
+    }
 }

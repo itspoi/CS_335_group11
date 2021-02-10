@@ -14,7 +14,7 @@ class CreateTransportsTable extends Migration
     public function up()
     {
         Schema::create('transports', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('type');
             $table->string('charges');
             $table->string('picture');

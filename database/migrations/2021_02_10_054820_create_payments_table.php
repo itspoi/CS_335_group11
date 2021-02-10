@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHotelsTable extends Migration
+class CreatePaymentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,14 @@ class CreateHotelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('hotels', function (Blueprint $table) {
+        Schema::create('payments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('mobile_number');
-            $table->string('email');
-            $table->string('address');
-            $table->string('type');
-            $table->string('charges');
-            $table->string('picture');
+            $table->string('mode');
+            $table->string('amount');
+            $table->unsignedBigInteger('booking_id');
             $table->timestamps();
+
+            $table->foreign('booking_id')->references('id')->on('bookings')->onDelete('cascade');
         });
     }
 
@@ -33,6 +31,6 @@ class CreateHotelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('hotels');
+        Schema::dropIfExists('payments');
     }
 }
