@@ -28,4 +28,4 @@
   </div>
 </div>
 <!-- /.login-box -->
-@endsection
+@stop
