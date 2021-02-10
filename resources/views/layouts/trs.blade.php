@@ -75,7 +75,7 @@
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <a href="" class="dropdown-item">
-            <i class="fas fa-comments mr-2"></i> Tourism
+            <i class="fas fa-user mr-2"></i> Profile
           </a>
           <div class="dropdown-divider"></div>
           <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item">
@@ -97,7 +97,7 @@
       <img src="{{ asset('images/logoIcon.png') }}" alt="Tourism Reservation Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-bold" style="font-size: 18px;">Tourism Reservation</span>
-    </a>
+    </a> 
 
     <!-- Sidebar -->
     <div class="sidebar">
@@ -129,38 +129,6 @@
               <i class="nav-icon fas fa-cube"></i>
               <p>
                 Packages
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ url("admin-place")}}" class="nav-link {{ request()->is('admin-place*') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-map-marked-alt"></i>
-              <p>
-                Tour Places
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ url("admin-hotel")}}" class="nav-link {{ request()->is('admin-hotel*') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-hotel"></i>
-              <p>
-                Hotels
-              </p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="{{ url("admin-transport")}}" class="nav-link {{ request()->is('admin-transport*') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-bus-alt"></i>
-              <p>
-                Transport
-              </p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="{{ url("admin-user")}}" class="nav-link {{ request()->is('admin-user*') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-user"></i>
-              <p>
-                Users
               </p>
             </a>
           </li>

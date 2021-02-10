@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.trs')
 
 @section('content')
 <!-- Content Header (Page header) -->
@@ -23,33 +23,7 @@
       <div class="container-fluid">
 
         <div class="row">
-          <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box">
-              <span class="info-box-icon bg-info"><i class="fa fa-user"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Users</span>
-                <span class="info-box-number"></span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-          <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box">
-              <span class="info-box-icon bg-success"><i class="fas fa-cube"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Packages</span>
-                <span class="info-box-number"></span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-          <div class="col-md-3 col-sm-6 col-12">
+          <div class="col-md-6 col-sm-6 col-12">
             <div class="info-box">
               <span class="info-box-icon bg-warning"><i class="fas fa-wallet" style="color: white;"></i></span>
 
@@ -62,7 +36,7 @@
             <!-- /.info-box -->
           </div>
           <!-- /.col -->
-          <div class="col-md-3 col-sm-6 col-12">
+          <div class="col-md-6 col-sm-6 col-12">
             <div class="info-box">
               <span class="info-box-icon bg-danger"><i class="fa fa-credit-card"></i></span>
 
