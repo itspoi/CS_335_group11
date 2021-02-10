@@ -1,6 +1,8 @@
+
 @extends('layouts.app')
 
 @section('content')
+
 
 <div class="login-box">
   <div class="login-logo">
@@ -72,3 +74,4 @@
 </div>
 <!-- /.login-box -->
 @stop
+
