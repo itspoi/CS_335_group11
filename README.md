@@ -27,4 +27,30 @@ The main objective of the system is to simplify tourism activity to clients in t
 4. [Project Design](https://github.com/lion1998/CS_335_group11/wiki/System-Design)
 5. [Tasks](https://github.com/lion1998/CS_335_group11/wiki/Tasks)
 
+# INSTALLATION
+## Clone GitHub repo for this project locally
+`git clone https://github.com/lion1998/CS_335_group11.git` 
+## Change directory into your project
+`cd CS_335_group11`
+## Install Composer Dependencies
+`composer install`
+## Install NPM Dependencies
+`npm install`
+## Create a copy of your .env file
+`cp .env.example .env`
+## Generate an app encryption key
+`php artisan key:generate`
+## Create an empty database for our application
+database name: trs
+## In the .env file, add database information to allow Laravel to connect to the database
+set your DB_USERNAME, and DB_PASSWORD
+## Migrate and Seed the database
+`php artisan migrate --seed`
 
+# CONTRIBUTION
+## Create new branch (active)
+`git checkout -b <YourBranchName>`
+## To update changes to the branch
+`git push origin <BranchName>`
+## Create pull request
+## Code review and merge
