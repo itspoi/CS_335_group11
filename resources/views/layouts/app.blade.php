@@ -22,9 +22,14 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-    
+    <style>
+      body{
+           background-image: url("/images/animals-1612946569616-2399.jpg"); 
+      }
+   </style>
 </head>
 <body>
+  
     <div>
 
         <main class="hold-transition register-page">
