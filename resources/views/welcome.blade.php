@@ -102,12 +102,15 @@
 
                                         <li class="nav-link {{ Request::route()->getName() === 'home' ? 'active' : '' }}"><a href="{{ url('/') }}">home</a></li>
                                         <li class="nav-link {{ Request::route()->getName() === 'destination' ? 'active' : '' }}"><a href="{{ url('/destination') }}">Destination</a></li>
-                                        <li class="smooth-menu"><a href="#pack">Packages </a></li>
-                                        <li class="smooth-menu"><a href="#spo">Special Offers</a></li>
-                                        <li class="smooth-menu"><a href="#blog">blog</a></li>
-                                        <li class="smooth-menu"><a href="#subs">subscription</a></li>
+                                        <li class="nav-link {{ Request::route()->getName() === 'packages' ? 'active' : '' }}"><a href="{{ url('/packages') }}">Packages </a></li>
+                                        <li class="nav-link {{ Request::route()->getName() === 'special offers' ? 'active' : '' }}"><a href="{{ url('/specia offers') }}">Special Offers</a></li>
+                                        <li class="nav-link {{ Request::route()->getName() === 'blog' ? 'active' : '' }}"><a href="{{ url('/blog') }}">blog</a></li>
+                                        <li class="nav-link {{ Request::route()->getName() === 'subscription' ? 'active' : '' }}"><a href="{{ url('/subscription') }}">subscription</a></li>
                                         <li>
-                                            <button class="book-btn">book now
+                                            <button class="book-btn">
+
+                                                    book now
+
                                             </button>
                                         </li><!--/.project-btn-->
 
@@ -242,7 +245,7 @@
 														<h2>check in</h2>
 														<div class="travel-check-icon">
 															<form action="#">
-																<input type="text" name="check_in" class="form-control" data-toggle="datepicker" placeholder="12 -01 - 2017 ">
+																<input type="text" min="{{ date('Y-m-d') }}" id="date" name="check_in" class="form-control" placeholder="12 -01 - 2017 ">
 															</form>
 														</div><!-- /.travel-check-icon -->
 													</div><!--/.single-tab-select-box-->
@@ -253,7 +256,7 @@
 														<h2>check out</h2>
 														<div class="travel-check-icon">
 															<form action="#">
-																<input type="text" name="check_out" class="form-control"  data-toggle="datepicker" placeholder="22 -01 - 2017 ">
+																<input type="text" min="{{ date('Y-m-d') }}" id="date" name="check_out" class="form-control"  placeholder="22 -01 - 2017 ">
 															</form>
 														</div><!-- /.travel-check-icon -->
 													</div><!--/.single-tab-select-box-->
@@ -378,7 +381,7 @@
 														<h2>check in</h2>
 														<div class="travel-check-icon">
 															<form action="#">
-																<input type="text" name="check_in" class="form-control" data-toggle="datepicker" placeholder="12 -01 - 2017 ">
+																<input type="text" min="{{ date('Y-m-d') }}" id="date" name="check_in" class="form-control" placeholder="12 -01 - 2017 ">
 															</form>
 														</div><!-- /.travel-check-icon -->
 													</div><!--/.single-tab-select-box-->
@@ -389,7 +392,7 @@
 														<h2>check out</h2>
 														<div class="travel-check-icon">
 															<form action="#">
-																<input type="text" name="check_out" class="form-control"  data-toggle="datepicker" placeholder="22 -01 - 2017 ">
+																<input type="text" min="{{ date('Y-m-d') }}" id="date" name="check_out" class="form-control"  placeholder="22 -01 - 2017 ">
 															</form>
 														</div><!-- /.travel-check-icon -->
 													</div><!--/.single-tab-select-box-->
@@ -495,8 +498,7 @@
 														<h2>departure</h2>
 														<div class="travel-check-icon">
 															<form action="#">
-																<input type="text" name="departure" class="form-control" data-toggle="datepicker"
-																placeholder="12 -01 - 2017 ">
+																<input type="text" min="{{ date('Y-m-d') }}" id="date" name="departure" class="form-control" placeholder="12 -01 - 2017 ">
 															</form>
 														</div><!-- /.travel-check-icon -->
 													</div><!--/.single-tab-select-box-->
@@ -507,7 +509,7 @@
 														<h2>return</h2>
 														<div class="travel-check-icon">
 															<form action="#">
-																<input type="text" name="return" class="form-control" data-toggle="datepicker" placeholder="22 -01 - 2017 ">
+																<input type="text" min="{{ date('Y-m-d') }}" id="date" name="return" class="form-control" placeholder="22 -01 - 2017 ">
 															</form>
 														</div><!-- /.travel-check-icon -->
 													</div><!--/.single-tab-select-box-->
@@ -623,7 +625,7 @@
 					<div class="col-md-4 col-sm-4">
 						<div class="single-service-box">
 							<div class="service-img">
-								<img src="assets/images/service/s1.png" alt="service-icon" />
+								<img src="images/images/service/s1.png" alt="service-icon" />
 							</div><!--/.service-img-->
 							<div class="service-content">
 								<h2>
@@ -639,7 +641,7 @@
 					<div class="col-md-4 col-sm-4">
 						<div class="single-service-box">
 							<div class="service-img">
-								<img src="assets/images/service/s2.png" alt="service-icon" />
+								<img src="images/images/service/s2.png" alt="service-icon" />
 							</div><!--/.service-img-->
 							<div class="service-content">
 								<h2>
@@ -655,7 +657,7 @@
 					<div class="col-md-4 col-sm-4">
 						<div class="single-service-box">
 							<div class="statistics-img">
-								<img src="assets/images/service/s3.png" alt="service-icon" />
+								<img src="images/images/service/s3.png" alt="service-icon" />
 							</div><!--/.service-img-->
 							<div class="service-content">
 
