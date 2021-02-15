@@ -42,7 +42,6 @@ class TransportController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|string|max:255',
             'type' => 'required',
             'charges' => 'required',
             'picture' => 'required',
@@ -50,26 +49,20 @@ class TransportController extends Controller
 
         if ($request->hasFile('picture')) {
 
-        $pictures = request()->file('picture');
-        $pictures_array = array();
+        $picture = request()->file('picture');
+        $pictureName = time().rand(0,9).'.'.$picture->getClientOriginalExtension();
+        $destination =  storage_path('app/public/pictures');
+        $picture->move($destination, $pictureName);
 
-        foreach ($pictures as $key => $picture) {
-            $pictureName = time().rand(0,9).'.'.$picture->getClientOriginalExtension();
-            $destination =  storage_path('app/public/pictures');
-            $picture->move($destination, $pictureName);
-            array_push($pictures_array, $pictureName);
+            $transport = Transport::create([
+                'type' => $request['type'],
+                'charges' => $request['charges'],
+                'picture' => $pictureName,
+            ]);
+            return $this->index()->with('success','Transport added successfully.');
         }
-            $picture_loac = implode(", ", $pictures_array);
 
-        }
-  
-          $transport = Transport::create([
-            'type' => $request['type'],
-            'charges' => $request['charges'],
-            'picture' => $picture_loac,
-          ]);
-
-          return $this->index()->with('success','Transport added successfully.');
+          return $this->index()->with('error','Please add a transport picture.');
     }
 
     /**
@@ -92,7 +85,7 @@ class TransportController extends Controller
     public function edit($id)
     {
         $transportid = decrypt($id);
-        $transport = Transport::find($userid);
+        $transport = Transport::find($transportid);
 
         return view('admin.transports.edit' , compact('transport'));
     }
@@ -108,7 +101,7 @@ class TransportController extends Controller
     {
         $transport = Transport::find($id);
         $transport->type = $request->type;
-        $transport->charge = $request->charge;
+        $transport->charges = $request->charges;
         $transport->save();
     
         return  $this->index()->with('success',' Transport Information is updated successfully.');

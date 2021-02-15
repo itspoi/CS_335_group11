@@ -117,7 +117,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview">
-            <a href="{{ url('home')}}" class="nav-link {{ request()->is('admin-home') ? 'active' : '' }}">
+            <a href="{{ url('home')}}" class="nav-link {{ request()->is('trs-home') ? 'active' : '' }}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -125,7 +125,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="" class="nav-link {{ request()->is('admin-smsLogs*') ? 'active' : '' }}">
+            <a href="{{ url('trs-package')}}" class="nav-link {{ request()->is('trs-package*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-cube"></i>
               <p>
                 Packages
@@ -133,7 +133,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="" class="nav-link {{ request()->is('admin-payment*') ? 'active' : '' }}">
+            <a href="{{ url('trs-booking')}}" class="nav-link {{ request()->is('trs-booking*') ? 'active' : '' }}">
               <i class="nav-icon fa fa-wallet"></i>
               <p>
                 Bookings
@@ -141,7 +141,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="" class="nav-link {{ request()->is('admin-payment*') ? 'active' : '' }}">
+            <a href="" class="nav-link {{ request()->is('trs-payment*') ? 'active' : '' }}">
               <i class="nav-icon fa fa-credit-card"></i>
               <p>
                 Payments
@@ -149,7 +149,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="" class="nav-link {{ request()->is('admin-setting*') ? 'active' : '' }}">
+            <a href="" class="nav-link {{ request()->is('user-setting*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-cog"></i>
               <p>
                 Settings

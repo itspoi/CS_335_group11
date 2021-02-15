@@ -17,7 +17,7 @@ class CreateTransportsTable extends Migration
             $table->bigIncrements('id');
             $table->string('type');
             $table->string('charges');
-            $table->string('picture');
+            $table->string('picture')->nullable();
             $table->timestamps();
         });
     }

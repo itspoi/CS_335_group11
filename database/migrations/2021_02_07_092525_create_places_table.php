@@ -19,7 +19,7 @@ class CreatePlacesTable extends Migration
             $table->text('description');
             $table->string('address');
             $table->string('charges');
-            $table->string('picture');
+            $table->string('picture')->nullable();
             $table->timestamps();
         });
     }

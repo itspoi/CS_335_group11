@@ -27,7 +27,7 @@
             <!-- Horizontal Form -->
             <div class="card card-info">
               <!-- form start -->
-              <form class="form-horizontal" method="POST" action="{{ route('admin-transport.store') }}">
+              <form class="form-horizontal" method="POST" action="{{ route('admin-transport.store') }}" enctype="multipart/form-data">
                 @csrf
 
                 <div class="card-body">

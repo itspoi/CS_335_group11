@@ -9,6 +9,13 @@ class Package extends Model
 {
     use HasFactory;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [];
+
     public function hotel()
     {
         return $this->belongsTo('App\Models\Hotel', 'hotel_id', 'id');

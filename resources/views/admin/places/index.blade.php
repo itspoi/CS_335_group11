@@ -46,7 +46,7 @@
                   <tbody>
                     @foreach($places as $place)
                       <tr>
-                        <td>{{$place->picture}}</td>
+                        <td><img src="{{ asset('storage/pictures/'.$place->picture) }}" alt="{{$place->name}}" height="60" width="120"></td>
                         <td>{{$place->name}}</td>
                         <td>{{$place->description}}</td>
                         <td>{{$place->address}}</td>

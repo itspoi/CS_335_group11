@@ -35,9 +35,8 @@
                 <table id="users" class="table table-hover display nowrap" style="width:100%">
                   <thead>
                   <tr>
-                    <th>User Name</th>
-                    <th>User Location</th>
-                    <th>Package Name</th>
+                    <th>User</th>
+                    <th>Package</th>
                     <th>Amount</th>
                     <th>Payment</th>
                     <th>Status</th>

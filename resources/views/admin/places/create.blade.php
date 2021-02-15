@@ -27,7 +27,7 @@
             <!-- Horizontal Form -->
             <div class="card card-info">
               <!-- form start -->
-              <form class="form-horizontal" method="POST" action="{{ route('admin-place.store') }}">
+              <form class="form-horizontal" method="POST" action="{{ route('admin-place.store') }}" enctype="multipart/form-data">
                 @csrf
 
                 <div class="card-body">
@@ -49,9 +49,9 @@
                   <div class="form-group row">
                     <label for="description" class="col-sm-4 col-form-label text-md-right">Description</label>
                     <div class="col-sm-6">
-                      <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" id="email" placeholder="Email" required>
+                      <input type="text" class="form-control @error('description') is-invalid @enderror" name="description" id="description" placeholder="Description" required>
 
-                      @error('email')
+                      @error('description')
                         <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
                         </span>

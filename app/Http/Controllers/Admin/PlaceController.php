@@ -51,29 +51,22 @@ class PlaceController extends Controller
 
         if ($request->hasFile('picture')) {
 
-        $pictures = request()->file('picture');
-        $pictures_array = array();
-
-        foreach ($pictures as $key => $picture) {
-            $pictureName = time().rand(0,9).'.'.$picture->getClientOriginalExtension();
-            $destination =  storage_path('app/public/pictures');
-            $picture->move($destination, $pictureName);
-            array_push($pictures_array, $pictureName);
-        }
-            $picture_loac = implode(", ", $pictures_array);
-
-        }
-  
-          $hotel = Hotel::create([
+        $picture = request()->file('picture');
+        $pictureName = time().rand(0,9).'.'.$picture->getClientOriginalExtension();
+        $destination =  storage_path('app/public/pictures');
+        $picture->move($destination, $pictureName);
+        
+        $place = Place::create([
             'name' => $request['name'],
-            'descriptiopn' => $request['description'],
-            'email' => $request['email'],
+            'description' => $request['description'],
             'address' => $request['address'],
             'charges' => $request['charges'],
-            'picture' => $picture_loac,
+            'picture' => $pictureName,
           ]);
 
           return $this->index()->with('success','Place added successfully.');
+        }
+  
     }
 
     /**
@@ -96,7 +89,7 @@ class PlaceController extends Controller
     public function edit($id)
     {
         $placeid = decrypt($id);
-        $place = Hotel::find($placeid);
+        $place = Place::find($placeid);
 
         return view('admin.places.edit' , compact('place'));
     }
@@ -113,9 +106,8 @@ class PlaceController extends Controller
         $place = Place::find($id);
         $place->name = $request->name;
         $place->description = $request->description;
-        $place->email =$request->email;
         $place->address = $request->address;
-        $place->charge = $request->charge;
+        $place->charges = $request->charges;
         $place->save();
     
         return  $this->index()->with('success',' Place Information is updated successfully.');

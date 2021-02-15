@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
+use App\Models\Booking;
+use Auth;
+Use Hash;
 
 class BookingController extends Controller
 {
@@ -14,7 +18,9 @@ class BookingController extends Controller
      */
     public function index()
     {
-        //
+        $bookings = Booking::all();
+
+        return view('admin.bookings.index', compact('bookings'));
     }
 
     /**
@@ -24,7 +30,7 @@ class BookingController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.bookings.create');
     }
 
     /**
@@ -35,7 +41,17 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'status' => 'required|string',
+            'user' => 'required|string',
+            'package' => 'required|string',
+          ]);
+  
+          $booking = Booking::create([
+            'status' => $request['status'],
+          ]);
+
+          return $this->index()->with('success','Booking added successfully.');
     }
 
     /**
