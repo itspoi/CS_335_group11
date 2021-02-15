@@ -10,7 +10,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
         <!-- Styles -->
-        
+
         <style>
             /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
             html{line-height:1.15;-webkit-text-size-adjust:100%}
@@ -24,6 +24,37 @@
                 font-family: 'Nunito';
             }
         </style>
+
+        {{-- these are the links for other styles --}}
+        <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}" />
+
+        <!--animate.css-->
+		<link rel="stylesheet" href="{{ asset('css/animate.css') }}" />
+
+        <!--hover.css-->
+		<link rel="stylesheet" href="{{ asset('css/hover-min.css') }}" />
+
+        <!--datepicker.css-->
+		<link rel="stylesheet"  href="{{ asset('css/datepicker.css') }}" />
+
+        <!--owl.carousel.css-->
+        <link rel="stylesheet" href="{{ asset ('css/owl.carousel.min.css') }}" />
+		<link rel="stylesheet" href="{{ asset ('css/owl.theme.default.min.css') }} "/>
+
+        <!-- range css-->
+        <link rel="stylesheet" href="{{ asset ('css/jquery-ui.min.css') }}" />
+
+        <!--bootstrap.min.css-->
+		<link rel="stylesheet" href="{{ asset ('css/bootstrap.min.css') }}" />
+
+        <!-- bootsnav -->
+		<link rel="stylesheet" href="{{ asset ('css/bootsnav.css') }}" />
+
+        <!--style.css-->
+		<link rel="stylesheet" href="{{ asset ('css/style.css') }}" />
+
+        <!--responsive.css-->
+		<link rel="stylesheet" href="{{ asset ('css/responsive.css') }}" />
     </head>
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
