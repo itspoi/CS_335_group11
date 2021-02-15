@@ -16,4 +16,29 @@ class PageController extends Controller
         return view('destination');
     }
 
+    public function getPackages()
+    {
+        return view('packages');
+    }
+
+    public function getSpecialOffers()
+    {
+        return view('special offers');
+    }
+
+    public function getBlog()
+    {
+        return view('blog');
+    }
+
+    public function getSubscription()
+    {
+        return view('subscription');
+    }
+
+    public function getBookNow()
+    {
+        return view('book now');
+    }
+
 }
