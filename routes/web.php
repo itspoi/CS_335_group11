@@ -95,6 +95,6 @@ Route::post('trs-payment/store', 'App\Http\Controllers\Trs\PaymentController@sto
 // this is the pages Controller
 Route::get('/', 'App\Http\ControllersPageController@getHome')->name('welcome');
 
-Route::get('/contact', 'PagesController@getContact')->name('contact');
+Route::get('/destination', 'App\Http\Controllers\PageController@getDestination')->name('destination');
 
-Route::get('/about', 'PagesController@getAbout')->name('about');
+Route::get('/about', 'App\Http\ControllersPageController@getAbout')->name('about');

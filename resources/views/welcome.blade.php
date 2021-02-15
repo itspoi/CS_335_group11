@@ -100,8 +100,8 @@
                                         @else
 
 
-                                        <li class="smooth-menu"><a href=href="{{ url('/') }}">home</a></li>
-                                        <li class="smooth-menu"><a href="#gallery">Destination</a></li>
+                                        <li class="nav-link {{ Request::route()->getName() === 'home' ? 'active' : '' }}"><a href="{{ url('/') }}">home</a></li>
+                                        <li class="nav-link {{ Request::route()->getName() === 'destination' ? 'active' : '' }}"><a href="{{ url('/destination') }}">Destination</a></li>
                                         <li class="smooth-menu"><a href="#pack">Packages </a></li>
                                         <li class="smooth-menu"><a href="#spo">Special Offers</a></li>
                                         <li class="smooth-menu"><a href="#blog">blog</a></li>
