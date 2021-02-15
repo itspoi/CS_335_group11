@@ -68,7 +68,7 @@
                         <div class="col-sm-2">
                             <div class="logo">
                                 <a href="{{ url('/') }}" >
-                                    Tourism<span>Management</span>
+                                    Tour <span>Gent</span>
                                 </a>
                             </div><!-- /.logo-->
                         </div><!-- /.col-->
@@ -128,9 +128,41 @@
     </header><!-- /.top-area-->
     <!-- main-menu End -->
 
+    <!--about-us start -->
+		<section id="home" class="about-us">
+			<div class="container">
+				<div class="about-us-content">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="single-about-us">
+								<div class="about-us-txt">
+									<h2>
+										Explore the Beauty of the Beautiful World
+
+									</h2>
+									<div class="about-btn">
+										<button  class="about-view">
+											explore now
+										</button>
+									</div><!--/.about-btn-->
+								</div><!--/.about-us-txt-->
+							</div><!--/.single-about-us-->
+						</div><!--/.col-->
+						<div class="col-sm-0">
+							<div class="single-about-us">
+
+							</div><!--/.single-about-us-->
+						</div><!--/.col-->
+					</div><!--/.row-->
+				</div><!--/.about-us-content-->
+			</div><!--/.container-->
+
+		</section><!--/.about-us-->
+		<!--about-us end -->
 
 
-    
+
+
     {{-- <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
             @if (Route::has('login'))
@@ -193,6 +225,23 @@
 		<!--Custom JS-->
 		<script src="{{asset ('js/custom.js') }}"></script>
 
+        <script type="text/javascript">
+            $(function (){
+                $("#date").datepicker({
+                    format: "yyyy-mm-dd",
+                    autoclose: true,
+                    todayHighlight: true,
+                    showOtherMonths: true,
+                    selectOtherMonths: true,
+                    autoclose: true,
+                    changeMonth: true,
+                    changeYear: true,
+                    startDate: new Date(),
+                });
+            });
+        </script>
+
+        @yield('js')
 
     </body>
 </html>

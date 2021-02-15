@@ -33,6 +33,6 @@ class HomeController extends Controller
      */
     public function trsIndex()
     {
-        return view('trs.home');
+        return view('welcome');
     }
 }

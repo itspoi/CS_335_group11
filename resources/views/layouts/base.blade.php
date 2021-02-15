@@ -41,7 +41,6 @@
 
 </head>
 <body>
-    @include('include.navbar')
 
     @yield('content')
 
