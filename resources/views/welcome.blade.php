@@ -1,3 +1,6 @@
+@extends('layouts.base')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -56,7 +59,79 @@
         <!--responsive.css-->
 		<link rel="stylesheet" href="{{ asset ('css/responsive.css') }}" />
     </head>
-    <body class="antialiased">
+
+        <!-- main-menu Start -->
+        <header class="top-area">
+            <div class="header-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="logo">
+                                <a href="{{ url('/') }}" >
+                                    Tourism<span>Management</span>
+                                </a>
+                            </div><!-- /.logo-->
+                        </div><!-- /.col-->
+                        <div class="col-sm-10">
+                            <div class="main-menu">
+
+                                <!-- Brand and toggle get grouped for better mobile display -->
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                        <i class="fa fa-bars"></i>
+                                    </button><!-- / button-->
+                                </div><!-- /.navbar-header-->
+                                <div class="collapse navbar-collapse">
+                                    <ul class="nav navbar-nav navbar-right">
+
+
+                                        @guest
+                                        @if (Route::has('login'))
+                                            <li><a href="{{ route('login') }}"><span class="fa fa-user"></span> Login</a></li>
+                                        @endif
+
+                                            @if (Route::has('register'))
+                                                <li><a href="{{ route('register') }}">Register</a></li>
+                                            @endif
+
+                                        @else
+
+
+                                        <li class="smooth-menu"><a href="#home">home</a></li>
+                                        <li class="smooth-menu"><a href="#gallery">Destination</a></li>
+                                        <li class="smooth-menu"><a href="#pack">Packages </a></li>
+                                        <li class="smooth-menu"><a href="#spo">Special Offers</a></li>
+                                        <li class="smooth-menu"><a href="#blog">blog</a></li>
+                                        <li class="smooth-menu"><a href="#subs">subscription</a></li>
+                                        <li>
+                                            <button class="book-btn">book now
+                                            </button>
+                                        </li><!--/.project-btn-->
+
+                                        <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();"><span class="fa fa-user"></span> Log Out</a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+                                        </li>
+                                            @endguest
+
+                                    </ul>
+                                </div><!-- /.navbar-collapse -->
+                            </div><!-- /.main-menu-->
+                        </div><!-- /.col-->
+                    </div><!-- /.row -->
+                    <div class="home-border"></div><!-- /.home-border-->
+                </div><!-- /.container-->
+            </div><!-- /.header-area -->
+
+    </header><!-- /.top-area-->
+    <!-- main-menu End -->
+
+
+
+    
+    {{-- <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
@@ -78,7 +153,7 @@
                 </div>
 
             </div>
-        </div>
+        </div> --}}
 
 
 
@@ -118,6 +193,7 @@
 		<!--Custom JS-->
 		<script src="{{asset ('js/custom.js') }}"></script>
 
-        
+
     </body>
 </html>
+@endsection
