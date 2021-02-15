@@ -21,7 +21,7 @@ class CreateHotelsTable extends Migration
             $table->string('address');
             $table->string('type');
             $table->string('charges');
-            $table->string('picture');
+            $table->string('picture')->nullable();
             $table->timestamps();
         });
     }

@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.trs')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -6,12 +6,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Create Transport</h1>
+            <h1>Create Booking</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{ url('admin-transport')}}">Transports</a></li>
-              <li class="breadcrumb-item active">Create Transports</li>
+              <li class="breadcrumb-item"><a href="{{ url('trs-booking')}}">Bookings</a></li>
+              <li class="breadcrumb-item active">Create Booking</li>
             </ol>
           </div>
         </div>
@@ -27,31 +27,18 @@
             <!-- Horizontal Form -->
             <div class="card card-info">
               <!-- form start -->
-              <form class="form-horizontal" method="POST" action="{{ route('admin-transport.store') }}" enctype="multipart/form-data">
+              <form class="form-horizontal" method="POST" action="{{ route('trs-booking.store') }}">
                 @csrf
 
                 <div class="card-body">
                   @include('flash-message')
 
                   <div class="form-group row">
-                    <label for="type" class="col-sm-4 col-form-label text-md-right">Type</label>
+                    <label for="name" class="col-sm-4 col-form-label text-md-right">User</label>
                     <div class="col-sm-6">
-                      <input type="text" class="form-control @error('type') is-invalid @enderror" name="type" id="type" placeholder="type" required>
+                      <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" placeholder="name" required>
 
-                      @error('type')
-                        <span class="invalid-feedback" role="alert">
-                          <strong>{{ $message }}</strong>
-                        </span>
-                      @enderror
-                    </div>
-                  </div>
-                  
-                  <div class="form-group row">
-                    <label for="charges" class="col-sm-4 col-form-label text-md-right">Charges</label>
-                    <div class="col-sm-6">
-                      <input type="text" class="form-control @error('type') is-invalid @enderror" name="charges" id="charges" placeholder="charges" required>
-
-                      @error('charges')
+                      @error('name')
                         <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
                         </span>
@@ -60,18 +47,31 @@
                   </div>
 
                   <div class="form-group row">
-                    <label for="picture" class="col-sm-4 col-form-label text-md-right">picture</label>
+                    <label for="package" class="col-sm-4 col-form-label text-md-right">Package</label>
                     <div class="col-sm-6">
-                      <input type="file" class="form-control @error('type') is-invalid @enderror" name="picture" id="picture" placeholder="picture" required>
+                      <input type="text" class="form-control @error('package') is-invalid @enderror" name="package" id="package" placeholder="Package" required>
 
-                      @error('picture')
+                      @error('package')
                         <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
                         </span>
                       @enderror
                     </div>
                   </div>
-                  
+
+                  <div class="form-group row">
+                    <label for="status" class="col-sm-4 col-form-label text-md-right">Status</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control @error('status') is-invalid @enderror" name="status" id="status" placeholder="Status" required>
+
+                      @error('status')
+                        <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror
+                    </div>
+                  </div>
+ 
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">

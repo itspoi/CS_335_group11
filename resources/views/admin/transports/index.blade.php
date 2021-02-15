@@ -44,16 +44,24 @@
                   <tbody>
                     @foreach($transports as $transport)
                       <tr>
-                        <td>{{$transport->picture}}</td>
+                        <td><img src="{{ asset('storage/pictures/'.$transport->picture) }}" alt="{{$transport->type}}" height="60" width="120"></td>
                         <td>{{$transport->type}}</td>
                         <td>{{$transport->charges}}</td>
-                        <td> 
-                          <a href="{{url('admin-transport/edit/'.encrypt($transport->id)) }}" class="btn btn-sm btn-info" title="Edit Transport">
-                            <i class="fas fa-edit"></i>
-                          </a>
-                          <a href="{{url('admin-transport/destroy/'.encrypt($transport->id)) }}" class="btn btn-sm btn-danger" title="Delete Transport" onclick="return confirm('Delete this Transport?')">
-                            <i class="fas fa-trash"></i>
-                          </a>
+                        <td>
+                          <div class="row">
+                            <a href="{{url('admin-transport/edit/'.encrypt($transport->id)) }}" class="btn btn-sm btn-info" title="Edit Transport">
+                              <i class="fas fa-edit"></i>
+                            </a>
+  
+                            <form action="{{url('admin-transport/destroy/'.encrypt($transport->id)) }}" method="POST">
+                              @csrf
+                              @method('DELETE')
+                              <button type="submit" class="btn-sm btn-danger" title="Delete Transport" onclick="return confirm('Delete this Transport?')">
+                                <i class="fas fa-trash"></i>
+                              </button>
+                            </form>
+                          </div> 
+                        
                         </td>
                       </tr>
                     @endforeach

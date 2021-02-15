@@ -78,12 +78,10 @@
                   <table class="table m-0">
                     <thead>
                     <tr>
-                      <th>Trnx ID</th>
-                      <th>Pay Method</th>
+                      <th>ID</th>
+                      <th>Package</th>
                       <th>Amount</th>
-                      <th>Units</th>
-                      <th>Account</th>
-                      <th>Mobile No</th>
+                      <th>status</th>
                       <th>Date</th>
                     </tr>
                     </thead>
@@ -96,8 +94,8 @@
               </div>
               <!-- /.card-body -->
               <div class="card-footer clearfix">
-                <a href="" class="btn btn-sm btn-info float-left">Create New Payment</a>
-                <a href="" class="btn btn-sm btn-secondary float-right">View All Payments</a>
+                <a href="" class="btn btn-sm btn-info float-left">Create Booking</a>
+                <a href="" class="btn btn-sm btn-secondary float-right">View Bookings</a>
               </div>
               <!-- /.card-footer -->
             </div>
@@ -107,6 +105,7 @@
           
         </div>
         <!-- /.row (main row) -->
+        
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->

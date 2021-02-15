@@ -53,30 +53,26 @@ class HotelController extends Controller
 
         if ($request->hasFile('picture')) {
 
-        $pictures = request()->file('picture');
-        $pictures_array = array();
+        $picture = request()->file('picture');
+        $pictureName = time().rand(0,9).'.'.$picture->getClientOriginalExtension();
+        $destination =  storage_path('app/public/pictures');
+        $picture->move($destination, $pictureName);
 
-        foreach ($pictures as $key => $picture) {
-            $pictureName = time().rand(0,9).'.'.$picture->getClientOriginalExtension();
-            $destination =  storage_path('app/public/pictures');
-            $picture->move($destination, $pictureName);
-            array_push($pictures_array, $pictureName);
-        }
-            $picture_loac = implode(", ", $pictures_array);
-
-        }
-  
-          $hotel = Hotel::create([
+        $hotel = Hotel::create([
             'name' => $request['name'],
             'mobile_number' => $request['mobile_number'],
             'email' => $request['email'],
             'address' => $request['address'],
             'type' => $request['type'],
             'charges' => $request['charges'],
-            'picture' => $picture_loac,
+            'picture' => $pictureName,
           ]);
 
           return $this->index()->with('success','Hotel added successfully.');
+
+        }
+        return $this->index()->with('error','Please add hotel picture.');
+        
     }
 
     /**
@@ -119,7 +115,7 @@ class HotelController extends Controller
         $hotel->email =$request->email;
         $hotel->address = $request->address;
         $hotel->type = $request->type;
-        $hotel->charge = $request->charge;
+        $hotel->charges = $request->charges;
         $hotel->save();
     
         return  $this->index()->with('success',' Hotel Information is updated successfully.');

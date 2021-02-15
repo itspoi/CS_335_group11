@@ -6,12 +6,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Create Hotel</h1>
+            <h1>Create Package</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{ url('admin-hotel')}}">Hotels</a></li>
-              <li class="breadcrumb-item active">Create Hotels</li>
+              <li class="breadcrumb-item"><a href="{{ url('admin-package')}}">Packages</a></li>
+              <li class="breadcrumb-item active">Create Package</li>
             </ol>
           </div>
         </div>
@@ -27,18 +27,18 @@
             <!-- Horizontal Form -->
             <div class="card card-info">
               <!-- form start -->
-              <form class="form-horizontal" method="POST" action="{{ route('admin-hotel.store') }}" enctype="multipart/form-data">
+              <form class="form-horizontal" method="POST" action="{{ route('admin-package.store') }}">
                 @csrf
 
                 <div class="card-body">
                   @include('flash-message')
 
                   <div class="form-group row">
-                    <label for="name" class="col-sm-4 col-form-label text-md-right">Name</label>
+                    <label for="title" class="col-sm-4 col-form-label text-md-right">Title</label>
                     <div class="col-sm-6">
-                      <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" placeholder="Full Name" required>
+                      <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="title" placeholder="Title" required>
 
-                      @error('name')
+                      @error('title')
                         <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
                         </span>
@@ -47,37 +47,11 @@
                   </div>
 
                   <div class="form-group row">
-                    <label for="mobile_number'" class="col-sm-4 col-form-label text-md-right">Mobile No</label>
+                    <label for="description" class="col-sm-4 col-form-label text-md-right">Description</label>
                     <div class="col-sm-6">
-                      <input type="text" class="form-control @error('mobile_number') is-invalid @enderror" name="mobile_number" id="mobile_number" placeholder="Mobile Number" required>
+                      <input type="text" class="form-control @error('description') is-invalid @enderror" name="description" id="description" placeholder="Description" required>
 
-                      @error('mobile_number')
-                        <span class="invalid-feedback" role="alert">
-                          <strong>{{ $message }}</strong>
-                        </span>
-                      @enderror
-                    </div>
-                  </div>
-
-                  <div class="form-group row">
-                    <label for="email" class="col-sm-4 col-form-label text-md-right">Email</label>
-                    <div class="col-sm-6">
-                      <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" placeholder="Email" required>
-
-                      @error('email')
-                        <span class="invalid-feedback" role="alert">
-                          <strong>{{ $message }}</strong>
-                        </span>
-                      @enderror
-                    </div>
-                  </div>
-
-                  <div class="form-group row">
-                    <label for="address" class="col-sm-4 col-form-label text-md-right">Address</label>
-                    <div class="col-sm-6">
-                      <input type="text" class="form-control @error('address') is-invalid @enderror" name="address" id="address" placeholder="Address" required>
-
-                      @error('address')
+                      @error('description')
                         <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
                         </span>
@@ -88,7 +62,7 @@
                   <div class="form-group row">
                     <label for="type" class="col-sm-4 col-form-label text-md-right">Type</label>
                     <div class="col-sm-6">
-                      <input type="text" class="form-control @error('type') is-invalid @enderror" name="type" id="type" placeholder="type" required>
+                      <input type="text" class="form-control @error('type') is-invalid @enderror" name="type" id="type" placeholder="Type" required>
 
                       @error('type')
                         <span class="invalid-feedback" role="alert">
@@ -97,13 +71,13 @@
                       @enderror
                     </div>
                   </div>
-                  
-                  <div class="form-group row">
-                    <label for="charges" class="col-sm-4 col-form-label text-md-right">Charges</label>
-                    <div class="col-sm-6">
-                      <input type="text" class="form-control @error('type') is-invalid @enderror" name="charges" id="charges" placeholder="charges" required>
 
-                      @error('charges')
+                  <div class="form-group row">
+                    <label for="amount" class="col-sm-4 col-form-label text-md-right">Amount</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control @error('amount') is-invalid @enderror" name="amount" id="amount" placeholder="Amount" required>
+
+                      @error('amount')
                         <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
                         </span>
@@ -112,11 +86,52 @@
                   </div>
 
                   <div class="form-group row">
-                    <label for="picture" class="col-sm-4 col-form-label text-md-right">picture</label>
+                    <label for="hotelid" class="col-sm-4 col-form-label text-md-right">Hotel</label>
                     <div class="col-sm-6">
-                      <input type="file" class="form-control @error('type') is-invalid @enderror" name="picture" id="picture" placeholder="picture" required>
+                      <select style="width: 100%;" name="hotelid" id="hotelid" required>
+                        <option selected>Select Hotel</option>
+                        @foreach($hotels as $hotel)
+                        <option value="{{$hotel->id}}">{{$hotel->name}}</option>
+                        @endforeach
+                    </select>
 
-                      @error('picture')
+                      @error('hotelid')
+                        <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror
+                    </div>
+                  </div>
+                  
+                  <div class="form-group row">
+                    <label for="transportid" class="col-sm-4 col-form-label text-md-right">Transport</label>
+                    <div class="col-sm-6">
+                      <select style="width: 100%;" name="transportid" id="transportid" required>
+                        <option selected>Select Transport</option>
+                        @foreach($transports as $transport)
+                        <option value="{{$transport->id}}">{{$transport->type}}</option>
+                        @endforeach
+                    </select>
+
+                      @error('transportid')
+                        <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="placeid" class="col-sm-4 col-form-label text-md-right">Place</label>
+                    <div class="col-sm-6">
+                      <select style="width: 100%;" name="placeid" id="placeid" required>
+                          <option selected>Select Place</option>
+                          @foreach($places as $place)
+                          <option value="{{$place->id}}">{{$place->name}}</option>
+                          @endforeach
+                      </select>
+
+                      @error('placeid')
                         <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
                         </span>

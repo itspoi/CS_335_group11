@@ -37,31 +37,31 @@
                   <div class="form-group row">
                     <label for="name" class="col-sm-4 col-form-label text-md-right">Name</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" name="name" id="name" value="{{$hotel->name}}" required>
+                      <input type="text" class="form-control" name="name" id="name" value="{{$place->name}}" required>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="description" class="col-sm-4 col-form-label text-md-right">Description</label>
                     <div class="col-sm-8">
-                      <input type="description" class="form-control" name="description" id="description" value="{{ $hotel->description }}" required>
+                      <input type="description" class="form-control" name="description" id="description" value="{{ $place->description }}" required>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="address" class="col-sm-4 col-form-label text-md-right">Address</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" name="address" id="address" value="{{$hotel->address}}" required>
+                      <input type="text" class="form-control" name="address" id="address" value="{{$place->address}}" required>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="charges" class="col-sm-4 col-form-label text-md-right">charges</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" name="charges" id="charges" value="{{$hotel->charges}}" required>
+                      <input type="text" class="form-control" name="charges" id="charges" value="{{$place->charges}}" required>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="picture" class="col-sm-4 col-form-label text-md-right">picture</label>
                     <div class="col-sm-8">
-                      <input type="file" class="form-control" name="picture" id="picture" value="{{$hotel->picture}}" required>
+                      <input type="file" class="form-control" name="picture" id="picture" value="{{$place->picture}}">
                     </div>
                   </div>
                   

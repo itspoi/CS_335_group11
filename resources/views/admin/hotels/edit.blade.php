@@ -73,7 +73,7 @@
                   <div class="form-group row">
                     <label for="picture" class="col-sm-4 col-form-label text-md-right">picture</label>
                     <div class="col-sm-8">
-                      <input type="file" class="form-control" name="picture" id="picture" value="{{$hotel->picture}}" required>
+                      <input type="file" class="form-control" name="picture" id="picture" value="{{$hotel->picture}}">
                     </div>
                   </div>
                   

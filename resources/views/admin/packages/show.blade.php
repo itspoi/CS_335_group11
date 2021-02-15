@@ -6,11 +6,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Bookings</h1>
+            <h1>Show Package</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item active">Bookings</li>
+              <li class="breadcrumb-item"><a href="{{ url('admin-package')}}">Packages</a></li>
+              <li class="breadcrumb-item active">Show Package</li>
             </ol>
           </div>
         </div>
@@ -25,28 +26,16 @@
             
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Bookings</h3>
-                <a href="{{url('admin-booking/create')}}"><button type="button" class="btn btn-sm btn-outline-primary float-right">New Booking</button></a>
+                <h3 class="card-title">Packages</h3>
+                <a href="{{url('admin-package/create')}}"><button type="button" class="btn btn-sm btn-outline-primary float-right">New Package</button></a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
                 @include('flash-message')
                 
-                <table id="users" class="table table-hover display nowrap" style="width:100%">
-                  <thead>
-                  <tr>
-                    <th>User</th>
-                    <th>Package</th>
-                    <th>Amount</th>
-                    <th>Payment</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                    
-                  </tbody>
-                </table>
+                <div class="row">
+                  
+                </div>
               </div>
               <!-- /.card-body -->
             </div>

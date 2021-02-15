@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Trs;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -20,7 +20,7 @@ class BookingController extends Controller
     {
         $bookings = Booking::all();
 
-        return view('admin.bookings.index', compact('bookings'));
+        return view('trs.bookings.index', compact('bookings'));
     }
 
     /**
@@ -30,7 +30,7 @@ class BookingController extends Controller
      */
     public function create()
     {
-        return view('admin.bookings.create');
+        return view('trs.bookings.create');
     }
 
     /**

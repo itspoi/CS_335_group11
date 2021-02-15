@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.trs')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -26,7 +26,7 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Bookings</h3>
-                <a href="{{url('admin-booking/create')}}"><button type="button" class="btn btn-sm btn-outline-primary float-right">New Booking</button></a>
+                <a href="{{url('trs-booking/create')}}"><button type="button" class="btn btn-sm btn-outline-primary float-right">New Booking</button></a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
