@@ -91,3 +91,10 @@ Route::post('trs-booking/store', 'App\Http\Controllers\Trs\BookingController@sto
 Route::get('trs-payment', 'App\Http\Controllers\Trs\PaymentController@index');
 Route::get('trs-payment/create', 'App\Http\Controllers\Trs\PaymentController@create');
 Route::post('trs-payment/store', 'App\Http\Controllers\Trs\PaymentController@store')->name('trs-payment.store');
+
+// this is the pages Controller
+Route::get('/', 'App\Http\ControllersPageController@getHome')->name('welcome');
+
+Route::get('/contact', 'PagesController@getContact')->name('contact');
+
+Route::get('/about', 'PagesController@getAbout')->name('about');

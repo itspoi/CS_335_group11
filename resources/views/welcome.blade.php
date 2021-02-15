@@ -28,6 +28,9 @@
             }
         </style>
 
+        <!-- favicon img -->
+		<link rel="shortcut icon" type="image/icon" href="{{ asset ('logo/favicon.png') }}"/>
+
         {{-- these are the links for other styles --}}
         <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}" />
 
@@ -97,7 +100,7 @@
                                         @else
 
 
-                                        <li class="smooth-menu"><a href="#home">home</a></li>
+                                        <li class="smooth-menu"><a href=href="{{ url('/') }}">home</a></li>
                                         <li class="smooth-menu"><a href="#gallery">Destination</a></li>
                                         <li class="smooth-menu"><a href="#pack">Packages </a></li>
                                         <li class="smooth-menu"><a href="#spo">Special Offers</a></li>
