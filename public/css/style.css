@@ -153,6 +153,7 @@ html,body{
     position: relative;
     z-index: 2;
     transition:.7s;
+
 }
 .is-sticky .header-area{
     color: #00d8d5;
@@ -176,7 +177,7 @@ html,body{
 .is-sticky .header-area:before{
     position:absolute;
     content:'';
-    background: rgba(77,78,84,1);
+    color: rgba(77,78,84,1);
     height:100%;
     width:100%;
     top:0;
@@ -191,6 +192,7 @@ html,body{
 
 .sticky-wrapper.is-sticky .main-menu .nav a:before{
     bottom: 17.6px;
+    color: red;
 }/*.sticky-wrapper */
 
 /*.logo*/

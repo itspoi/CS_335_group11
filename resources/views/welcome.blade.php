@@ -93,16 +93,16 @@
                                             <li><a href="{{ route('login') }}"><span class="fa fa-user"></span> Login</a></li>
                                         @endif
 
-                                            @if (Route::has('register'))
-                                                <li><a href="{{ route('register') }}">Register</a></li>
-                                            @endif
+                                        @if (Route::has('register'))
+                                            <li><a href="{{ route('register') }}">Register</a></li>
+                                        @endif
 
                                         @else
 
 
                                         <li class="nav-link {{ Request::route()->getName() === 'home' ? 'active' : '' }}"><a href="{{ url('/') }}">home</a></li>
                                         <li class="nav-link {{ Request::route()->getName() === 'destination' ? 'active' : '' }}"><a href="{{ url('/destination') }}">Destination</a></li>
-                                        <li class="nav-link {{ Request::route()->getName() === 'packages' ? 'active' : '' }}"><a href="{{ url('/packages') }}">Packages </a></li>
+                                        {{-- <li class="nav-link {{ Request::route()->getName() === 'packages' ? 'active' : '' }}"><a href="{{ url('/packages') }}">Packages </a></li> --}}
                                         <li class="nav-link {{ Request::route()->getName() === 'special offers' ? 'active' : '' }}"><a href="{{ url('/specia offers') }}">Special Offers</a></li>
                                         <li class="nav-link {{ Request::route()->getName() === 'blog' ? 'active' : '' }}"><a href="{{ url('/blog') }}">blog</a></li>
                                         <li class="nav-link {{ Request::route()->getName() === 'subscription' ? 'active' : '' }}"><a href="{{ url('/subscription') }}">subscription</a></li>
@@ -143,12 +143,12 @@
 							<div class="single-about-us">
 								<div class="about-us-txt">
 									<h2>
-										Explore the Beauty of the Beautiful World
+										Tourism Redefined. Welcome to the World!
 
 									</h2>
 									<div class="about-btn">
 										<button  class="about-view">
-											explore now
+											Check Packages
 										</button>
 									</div><!--/.about-btn-->
 								</div><!--/.about-us-txt-->
@@ -167,518 +167,280 @@
 		<!--about-us end -->
 
 
-        		<!--travel-box start-->
-		<section  class="travel-box">
-        	<div class="container">
-        		<div class="row">
-        			<div class="col-md-12">
-        				<div class="single-travel-boxes">
-        					<div id="desc-tabs" class="desc-tabs">
-
-								<ul class="nav nav-tabs" role="tablist">
-
-									<li role="presentation" class="active">
-									 	<a href="#tours" aria-controls="tours" role="tab" data-toggle="tab">
-									 		<i class="fa fa-tree"></i>
-									 		tours
-									 	</a>
-									</li>
-
-									<li role="presentation">
-										<a href="#hotels" aria-controls="hotels" role="tab" data-toggle="tab">
-											<i class="fa fa-building"></i>
-											hotels
-										</a>
-									</li>
-
-									<li role="presentation">
-									 	<a href="#flights" aria-controls="flights" role="tab" data-toggle="tab">
-									 		<i class="fa fa-plane"></i>
-									 		flights
-									 	</a>
-									</li>
-								</ul>
-
-								<!-- Tab panes -->
-								<div class="tab-content">
-
-									<div role="tabpanel" class="tab-pane active fade in" id="tours">
-										<div class="tab-para">
-
-											<div class="row">
-												<div class="col-lg-4 col-md-4 col-sm-12">
-													<div class="single-tab-select-box">
-
-														<h2>destination</h2>
-
-														<div class="travel-select-icon">
-															<select class="form-control ">
-
-															  	<option value="default">enter your destination country</option><!-- /.option-->
-
-															  	<option value="turkey">turkey</option><!-- /.option-->
-
-															  	<option value="russia">russia</option><!-- /.option-->
-															  	<option value="egept">egypt</option><!-- /.option-->
-
-															</select><!-- /.select-->
-														</div><!-- /.travel-select-icon -->
-
-														<div class="travel-select-icon">
-															<select class="form-control ">
-
-															  	<option value="default">enter your destination location</option><!-- /.option-->
-
-															  	<option value="istambul">istambul</option><!-- /.option-->
-
-															  	<option value="mosko">mosko</option><!-- /.option-->
-															  	<option value="cairo">cairo</option><!-- /.option-->
-
-															</select><!-- /.select-->
-														</div><!-- /.travel-select-icon -->
-
-													</div><!--/.single-tab-select-box-->
-												</div><!--/.col-->
-
-												<div class="col-lg-2 col-md-3 col-sm-4">
-													<div class="single-tab-select-box">
-														<h2>check in</h2>
-														<div class="travel-check-icon">
-															<form action="#">
-																<input type="text" min="{{ date('Y-m-d') }}" id="date" name="check_in" class="form-control" placeholder="12 -01 - 2017 ">
-															</form>
-														</div><!-- /.travel-check-icon -->
-													</div><!--/.single-tab-select-box-->
-												</div><!--/.col-->
-
-												<div class="col-lg-2 col-md-3 col-sm-4">
-													<div class="single-tab-select-box">
-														<h2>check out</h2>
-														<div class="travel-check-icon">
-															<form action="#">
-																<input type="text" min="{{ date('Y-m-d') }}" id="date" name="check_out" class="form-control"  placeholder="22 -01 - 2017 ">
-															</form>
-														</div><!-- /.travel-check-icon -->
-													</div><!--/.single-tab-select-box-->
-												</div><!--/.col-->
-
-												<div class="col-lg-2 col-md-1 col-sm-4">
-													<div class="single-tab-select-box">
-														<h2>duration</h2>
-														<div class="travel-select-icon">
-															<select class="form-control ">
-
-															  	<option value="default">5</option><!-- /.option-->
-
-															  	<option value="10">10</option><!-- /.option-->
-
-															  	<option value="15">15</option><!-- /.option-->
-															  	<option value="20">20</option><!-- /.option-->
-
-															</select><!-- /.select-->
-														</div><!-- /.travel-select-icon -->
-													</div><!--/.single-tab-select-box-->
-												</div><!--/.col-->
-
-												<div class="col-lg-2 col-md-1 col-sm-4">
-													<div class="single-tab-select-box">
-														<h2>members</h2>
-														<div class="travel-select-icon">
-															<select class="form-control ">
-
-															  	<option value="default">1</option><!-- /.option-->
-
-															  	<option value="2">2</option><!-- /.option-->
-
-															  	<option value="4">4</option><!-- /.option-->
-															  	<option value="8">8</option><!-- /.option-->
-
-															</select><!-- /.select-->
-														</div><!-- /.travel-select-icon -->
-													</div><!--/.single-tab-select-box-->
-												</div><!--/.col-->
-
-											</div><!--/.row-->
-
-											<div class="row">
-												<div class="col-sm-5">
-													<div class="travel-budget">
-														<div class="row">
-															<div class="col-md-3 col-sm-4">
-																<h3>budget : </h3>
-															</div><!--/.col-->
-															<div class="co-md-9 col-sm-8">
-																<div class="travel-filter">
-																	<div class="info_widget">
-																		<div class="price_filter">
-
-																			<div id="slider-range"></div><!--/.slider-range-->
-
-																			<div class="price_slider_amount">
-																				<input type="text" id="amount" name="price"  placeholder="Add Your Price" />
-																			</div><!--/.price_slider_amount-->
-																		</div><!--/.price-filter-->
-																	</div><!--/.info_widget-->
-																</div><!--/.travel-filter-->
-															</div><!--/.col-->
-														</div><!--/.row-->
-													</div><!--/.travel-budget-->
-												</div><!--/.col-->
-												<div class="clo-sm-7">
-													<div class="about-btn travel-mrt-0 pull-right">
-														<button  class="about-view travel-btn">
-															search
-														</button><!--/.travel-btn-->
-													</div><!--/.about-btn-->
-												</div><!--/.col-->
-
-											</div><!--/.row-->
-
-										</div><!--/.tab-para-->
-
-									</div><!--/.tabpannel-->
-
-									<div role="tabpanel" class="tab-pane fade in" id="hotels">
-										<div class="tab-para">
-
-											<div class="row">
-												<div class="col-lg-4 col-md-4 col-sm-12">
-													<div class="single-tab-select-box">
-
-														<h2>destination</h2>
-
-														<div class="travel-select-icon">
-															<select class="form-control ">
-
-															  	<option value="default">enter your destination country</option><!-- /.option-->
-
-															  	<option value="turkey">turkey</option><!-- /.option-->
-
-															  	<option value="russia">russia</option><!-- /.option-->
-															  	<option value="egept">egypt</option><!-- /.option-->
-
-															</select><!-- /.select-->
-														</div><!-- /.travel-select-icon -->
-
-														<div class="travel-select-icon">
-															<select class="form-control ">
-
-															  	<option value="default">enter your destination location</option><!-- /.option-->
-
-															  	<option value="istambul">istambul</option><!-- /.option-->
-
-															  	<option value="mosko">mosko</option><!-- /.option-->
-															  	<option value="cairo">cairo</option><!-- /.option-->
-
-															</select><!-- /.select-->
-														</div><!-- /.travel-select-icon -->
-
-													</div><!--/.single-tab-select-box-->
-												</div><!--/.col-->
-
-												<div class="col-lg-2 col-md-3 col-sm-4">
-													<div class="single-tab-select-box">
-														<h2>check in</h2>
-														<div class="travel-check-icon">
-															<form action="#">
-																<input type="text" min="{{ date('Y-m-d') }}" id="date" name="check_in" class="form-control" placeholder="12 -01 - 2017 ">
-															</form>
-														</div><!-- /.travel-check-icon -->
-													</div><!--/.single-tab-select-box-->
-												</div><!--/.col-->
-
-												<div class="col-lg-2 col-md-3 col-sm-4">
-													<div class="single-tab-select-box">
-														<h2>check out</h2>
-														<div class="travel-check-icon">
-															<form action="#">
-																<input type="text" min="{{ date('Y-m-d') }}" id="date" name="check_out" class="form-control"  placeholder="22 -01 - 2017 ">
-															</form>
-														</div><!-- /.travel-check-icon -->
-													</div><!--/.single-tab-select-box-->
-												</div><!--/.col-->
-
-												<div class="col-lg-2 col-md-1 col-sm-4">
-													<div class="single-tab-select-box">
-														<h2>duration</h2>
-														<div class="travel-select-icon">
-															<select class="form-control ">
-
-															  	<option value="default">5</option><!-- /.option-->
-
-															  	<option value="10">10</option><!-- /.option-->
-
-															  	<option value="15">15</option><!-- /.option-->
-															  	<option value="20">20</option><!-- /.option-->
-
-															</select><!-- /.select-->
-														</div><!-- /.travel-select-icon -->
-													</div><!--/.single-tab-select-box-->
-												</div><!--/.col-->
-
-												<div class="col-lg-2 col-md-1 col-sm-4">
-													<div class="single-tab-select-box">
-														<h2>members</h2>
-														<div class="travel-select-icon">
-															<select class="form-control ">
-
-															  	<option value="default">1</option><!-- /.option-->
-
-															  	<option value="2">2</option><!-- /.option-->
-
-															  	<option value="4">4</option><!-- /.option-->
-															  	<option value="8">8</option><!-- /.option-->
-
-															</select><!-- /.select-->
-														</div><!-- /.travel-select-icon -->
-													</div><!--/.single-tab-select-box-->
-												</div><!--/.col-->
-
-											</div><!--/.row-->
-
-											<div class="row">
-												<div class="col-sm-5"></div><!--/.col-->
-												<div class="clo-sm-7">
-													<div class="about-btn travel-mrt-0 pull-right">
-														<button  class="about-view travel-btn">
-															search
-														</button><!--/.travel-btn-->
-													</div><!--/.about-btn-->
-												</div><!--/.col-->
-
-											</div><!--/.row-->
-
-										</div><!--/.tab-para-->
-
-									</div><!--/.tabpannel-->
-
-									<div role="tabpanel" class="tab-pane fade in" id="flights">
-										<div class="tab-para">
-											<div class="trip-circle">
-												<div class="single-trip-circle">
-													<input type="radio" id="radio01" name="radio" />
-  													<label for="radio01">
-  														<span class="round-boarder">
-  															<span class="round-boarder1"></span>
-  														</span>round trip
-  													</label>
-												</div><!--/.single-trip-circle-->
-												<div class="single-trip-circle">
-													<input type="radio" id="radio02" name="radio" />
-  													<label for="radio02">
-  														<span class="round-boarder">
-  															<span class="round-boarder1"></span>
-  														</span>on way
-  													</label>
-												</div><!--/.single-trip-circle-->
-											</div><!--/.trip-circle-->
-											<div class="row">
-												<div class="col-lg-4 col-md-4 col-sm-12">
-													<div class="single-tab-select-box">
-
-														<h2>from</h2>
-
-														<div class="travel-select-icon">
-															<select class="form-control ">
-
-															  	<option value="default">enter your location</option><!-- /.option-->
-
-															  	<option value="turkey">turkey</option><!-- /.option-->
-
-															  	<option value="russia">russia</option><!-- /.option-->
-															  	<option value="egept">egypt</option><!-- /.option-->
-
-															</select><!-- /.select-->
-														</div><!-- /.travel-select-icon -->
-													</div><!--/.single-tab-select-box-->
-												</div><!--/.col-->
-
-												<div class="col-lg-2 col-md-3 col-sm-4">
-													<div class="single-tab-select-box">
-														<h2>departure</h2>
-														<div class="travel-check-icon">
-															<form action="#">
-																<input type="text" min="{{ date('Y-m-d') }}" id="date" name="departure" class="form-control" placeholder="12 -01 - 2017 ">
-															</form>
-														</div><!-- /.travel-check-icon -->
-													</div><!--/.single-tab-select-box-->
-												</div><!--/.col-->
-
-												<div class="col-lg-2 col-md-3 col-sm-4">
-													<div class="single-tab-select-box">
-														<h2>return</h2>
-														<div class="travel-check-icon">
-															<form action="#">
-																<input type="text" min="{{ date('Y-m-d') }}" id="date" name="return" class="form-control" placeholder="22 -01 - 2017 ">
-															</form>
-														</div><!-- /.travel-check-icon -->
-													</div><!--/.single-tab-select-box-->
-												</div><!--/.col-->
-
-												<div class="col-lg-2 col-md-1 col-sm-4">
-													<div class="single-tab-select-box">
-														<h2>adults</h2>
-														<div class="travel-select-icon">
-															<select class="form-control ">
-
-															  	<option value="default">5</option><!-- /.option-->
-
-															  	<option value="10">10</option><!-- /.option-->
-
-															  	<option value="15">15</option><!-- /.option-->
-															  	<option value="20">20</option><!-- /.option-->
-
-															</select><!-- /.select-->
-														</div><!-- /.travel-select-icon -->
-													</div><!--/.single-tab-select-box-->
-												</div><!--/.col-->
-
-												<div class="col-lg-2 col-md-1 col-sm-4">
-													<div class="single-tab-select-box">
-														<h2>childs</h2>
-														<div class="travel-select-icon">
-															<select class="form-control ">
-
-															  	<option value="default">1</option><!-- /.option-->
-
-															  	<option value="2">2</option><!-- /.option-->
-
-															  	<option value="4">4</option><!-- /.option-->
-															  	<option value="8">8</option><!-- /.option-->
-
-															</select><!-- /.select-->
-														</div><!-- /.travel-select-icon -->
-													</div><!--/.single-tab-select-box-->
-												</div><!--/.col-->
-
-											</div><!--/.row-->
-
-											<div class="row">
-												<div class="col-lg-4 col-md-4 col-sm-12">
-													<div class="single-tab-select-box">
-
-														<h2>to</h2>
-
-														<div class="travel-select-icon">
-															<select class="form-control ">
-
-															  	<option value="default">enter your destination location</option><!-- /.option-->
-
-															  	<option value="istambul">istambul</option><!-- /.option-->
-
-															  	<option value="mosko">mosko</option><!-- /.option-->
-															  	<option value="cairo">cairo</option><!-- /.option-->
-
-															</select><!-- /.select-->
-														</div><!-- /.travel-select-icon -->
-
-													</div><!--/.single-tab-select-box-->
-												</div><!--/.col-->
-												<div class="col-lg-3 col-md-3 col-sm-4">
-													<div class="single-tab-select-box">
-
-														<h2>class</h2>
-														<div class="travel-select-icon">
-															<select class="form-control ">
-
-															  	<option value="default">enter class</option><!-- /.option-->
-
-															  	<option value="A">A</option><!-- /.option-->
-
-															  	<option value="B">B</option><!-- /.option-->
-															  	<option value="C">C</option><!-- /.option-->
-
-															</select><!-- /.select-->
-														</div><!-- /.travel-select-icon -->
-													</div><!--/.single-tab-select-box-->
-												</div><!--/.col-->
-												<div class="clo-sm-5">
-													<div class="about-btn pull-right">
-														<button  class="about-view travel-btn">
-															search
-														</button><!--/.travel-btn-->
-													</div><!--/.about-btn-->
-												</div><!--/.col-->
-
-											</div><!--/.row-->
-
-										</div>
-
-									</div><!--/.tabpannel-->
-
-								</div><!--/.tab content-->
-							</div><!--/.desc-tabs-->
-        				</div><!--/.single-travel-box-->
-        			</div><!--/.col-->
-        		</div><!--/.row-->
-        	</div><!--/.container-->
-
-        </section><!--/.travel-box-->
-		<!--travel-box end-->
-
-        <!--service start-->
-		<section id="service" class="service">
-			<div class="container">
-
-				<div class="service-counter text-center">
-
-					<div class="col-md-4 col-sm-4">
-						<div class="single-service-box">
-							<div class="service-img">
-								<img src="images/images/service/s1.png" alt="service-icon" />
-							</div><!--/.service-img-->
-							<div class="service-content">
-								<h2>
-									<a href="#">
-									Choose amazing tour packages
-									</a>
-								</h2>
-								<p>Must use our tour Planner for breathtaking tour packages!</p>
-							</div><!--/.service-content-->
-						</div><!--/.single-service-box-->
-					</div><!--/.col-->
-
-					<div class="col-md-4 col-sm-4">
-						<div class="single-service-box">
-							<div class="service-img">
-								<img src="images/images/service/s2.png" alt="service-icon" />
-							</div><!--/.service-img-->
-							<div class="service-content">
-								<h2>
-									<a href="#">
-										book top class hotel
-									</a>
-								</h2>
-								<p>This amazing site helps you book the best hotels all around the world!</p>
-							</div><!--/.service-content-->
-						</div><!--/.single-service-box-->
-					</div><!--/.col-->
-
-					<div class="col-md-4 col-sm-4">
-						<div class="single-service-box">
-							<div class="statistics-img">
-								<img src="images/images/service/s3.png" alt="service-icon" />
-							</div><!--/.service-img-->
-							<div class="service-content">
-
-								<h2>
-									<a href="#">
-										online flight booking
-									</a>
-								</h2>
-								<p>Book your flight instantly using TourNest!</p>
-							</div><!--/.service-content-->
-						</div><!--/.single-service-box-->
-					</div><!--/.col-->
-
-				</div><!--/.statistics-counter-->
-			</div><!--/.container-->
-
-		</section><!--/.service-->
-		<!--service end-->
-
-
-
+        @guest
+        {{-- @if (Route::has('login'))
+        <li><a href="{{ route('login') }}"><span class="fa fa-user"></span> Login</a></li>
+        @endif
+
+        @if (Route::has('register'))
+        <li><a href="{{ route('register') }}">Register</a></li>
+        @endif --}}
+
+
+
+        <section id="pack" class="packages">
+            <div class="container">
+                <div class="gallary-header text-center">
+                    <h2>
+                        special packages
+                    </h2>
+                    <p>
+                        Welcome to our special packages for just you.
+                    </p>
+                </div><!--/.gallery-header-->
+                <div class="packages-content">
+                    <div class="row">
+
+                        <div class="col-md-4 col-sm-6">
+                            <div class="single-package-item">
+                                <img src="images/images/packages/p1.jpg" alt="package-place">
+                                <div class="single-package-item-txt">
+                                    <h3>italy <span class="pull-right">$499</span></h3>
+                                    <div class="packages-para">
+                                        <p>
+                                            <span>
+                                                <i class="fa fa-angle-right"></i> 3 Days 2 nights
+                                            </span>
+                                            <i class="fa fa-angle-right"></i>  5 star accomodation
+                                        </p>
+                                        <p>
+                                            <span>
+                                                <i class="fa fa-angle-right"></i>  transportation
+                                            </span>
+                                            <i class="fa fa-angle-right"></i> food facilities
+                                         </p>
+                                    </div><!--/.packages-para-->
+                                    <div class="packages-review">
+                                        <p>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <span>254 reviews</span>
+                                        </p>
+                                    </div><!--/.packages-review-->
+
+        
+
+                                    <div class="about-btn">
+                                        <button  class="about-view packages-btn">
+                                            book now
+                                        </button>
+                                    </div><!--/.about-btn-->
+                                </div><!--/.single-package-item-txt-->
+                            </div><!--/.single-package-item-->
+
+                        </div><!--/.col-->
+
+        @endguest
+
+
+
+                        <div class="col-md-4 col-sm-6">
+                            <div class="single-package-item">
+                                <img src="images/images/packages/p2.jpg" alt="package-place">
+                                <div class="single-package-item-txt">
+                                    <h3>england <span class="pull-right">$1499</span></h3>
+                                    <div class="packages-para">
+                                        <p>
+                                            <span>
+                                                <i class="fa fa-angle-right"></i> 6 Days 7 nights
+                                            </span>
+                                            <i class="fa fa-angle-right"></i>  5 star accomodation
+                                        </p>
+                                        <p>
+                                            <span>
+                                                <i class="fa fa-angle-right"></i>  transportation
+                                            </span>
+                                            <i class="fa fa-angle-right"></i>  Free food
+                                         </p>
+                                    </div><!--/.packages-para-->
+                                    <div class="packages-review">
+                                        <p>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <span>344 reviews</span>
+                                        </p>
+                                    </div><!--/.packages-review-->
+                                    <div class="about-btn">
+                                        <button  class="about-view packages-btn">
+                                            book now
+                                        </button>
+                                    </div><!--/.about-btn-->
+                                </div><!--/.single-package-item-txt-->
+                            </div><!--/.single-package-item-->
+
+                        </div><!--/.col-->
+
+                        <div class="col-md-4 col-sm-6">
+                            <div class="single-package-item">
+                                <img src="images/images/packages/p3.jpg" alt="package-place">
+                                <div class="single-package-item-txt">
+                                    <h3>france <span class="pull-right">$1199</span></h3>
+                                    <div class="packages-para">
+                                        <p>
+                                            <span>
+                                                <i class="fa fa-angle-right"></i> 5 Days 6 nights
+                                            </span>
+                                            <i class="fa fa-angle-right"></i>  5 star accomodation
+                                        </p>
+                                        <p>
+                                            <span>
+                                                <i class="fa fa-angle-right"></i>  transportation
+                                            </span>
+                                            <i class="fa fa-angle-right"></i>  food facilities
+                                         </p>
+                                    </div><!--/.packages-para-->
+                                    <div class="packages-review">
+                                        <p>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <span>544 reviews</span>
+                                        </p>
+                                    </div><!--/.packages-review-->
+                                    <div class="about-btn">
+                                        <button  class="about-view packages-btn">
+                                            book now
+                                        </button>
+                                    </div><!--/.about-btn-->
+                                </div><!--/.single-package-item-txt-->
+                            </div><!--/.single-package-item-->
+
+                        </div><!--/.col-->
+
+                        <div class="col-md-4 col-sm-6">
+                            <div class="single-package-item">
+                                <img src="images/images/packages/p4.jpg" alt="package-place">
+                                <div class="single-package-item-txt">
+                                    <h3>india <span class="pull-right">$799</span></h3>
+                                    <div class="packages-para">
+                                        <p>
+                                            <span>
+                                                <i class="fa fa-angle-right"></i> 4 Days 5 nights
+                                            </span>
+                                            <i class="fa fa-angle-right"></i>  5 star accomodation
+                                        </p>
+                                        <p>
+                                            <span>
+                                                <i class="fa fa-angle-right"></i>  transportation
+                                            </span>
+                                            <i class="fa fa-angle-right"></i>  food facilities
+                                         </p>
+                                    </div><!--/.packages-para-->
+                                    <div class="packages-review">
+                                        <p>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <span>625 reviews</span>
+                                        </p>
+                                    </div><!--/.packages-review-->
+                                    <div class="about-btn">
+                                        <button  class="about-view packages-btn">
+                                            book now
+                                        </button>
+                                    </div><!--/.about-btn-->
+                                </div><!--/.single-package-item-txt-->
+                            </div><!--/.single-package-item-->
+
+                        </div><!--/.col-->
+
+                        <div class="col-md-4 col-sm-6">
+                            <div class="single-package-item">
+                                <img src="images/images/packages/p5.jpg" alt="package-place">
+                                <div class="single-package-item-txt">
+                                    <h3>spain <span class="pull-right">$999</span></h3>
+                                    <div class="packages-para">
+                                        <p>
+                                            <span>
+                                                <i class="fa fa-angle-right"></i> 4 Days 4 nights
+                                            </span>
+                                            <i class="fa fa-angle-right"></i>  5 star accomodation
+                                        </p>
+                                        <p>
+                                            <span>
+                                                <i class="fa fa-angle-right"></i>  transportation
+                                            </span>
+                                            <i class="fa fa-angle-right"></i>  food facilities
+                                         </p>
+                                    </div><!--/.packages-para-->
+                                    <div class="packages-review">
+                                        <p>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <span>379 reviews</span>
+                                        </p>
+                                    </div><!--/.packages-review-->
+                                    <div class="about-btn">
+                                        <button  class="about-view packages-btn">
+                                            book now
+                                        </button>
+                                    </div><!--/.about-btn-->
+                                </div><!--/.single-package-item-txt-->
+                            </div><!--/.single-package-item-->
+
+                        </div><!--/.col-->
+
+                        <div class="col-md-4 col-sm-6">
+                            <div class="single-package-item">
+                                <img src="images/images/packages/p6.jpg" alt="package-place">
+                                <div class="single-package-item-txt">
+                                    <h3>thailand <span class="pull-right">$799</span></h3>
+                                    <div class="packages-para">
+                                        <p>
+                                            <span>
+                                                <i class="fa fa-angle-right"></i> 5 Days 6 nights
+                                            </span>
+                                            <i class="fa fa-angle-right"></i>  5 star accomodation
+                                        </p>
+                                        <p>
+                                            <span>
+                                                <i class="fa fa-angle-right"></i>  transportation
+                                            </span>
+                                            <i class="fa fa-angle-right"></i>  food facilities
+                                         </p>
+                                    </div><!--/.packages-para-->
+                                    <div class="packages-review">
+                                        <p>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <span>447 reviews</span>
+                                        </p>
+                                    </div><!--/.packages-review-->
+                                    <div class="about-btn">
+                                        <button  class="about-view packages-btn">
+                                            book now
+                                        </button>
+                                    </div><!--/.about-btn-->
+                                </div><!--/.single-package-item-txt-->
+                            </div><!--/.single-package-item-->
+
+                        </div><!--/.col-->
+
+                    </div><!--/.row-->
+                </div><!--/.packages-content-->
+            </div><!--/.container-->
+
+        </section><!--/.packages-->
+        <!--packages end-->
+
+
+        {{-- @endguest --}}
 
 
     {{-- <body class="antialiased">

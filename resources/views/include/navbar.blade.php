@@ -37,7 +37,7 @@
 
                                 <li class="nav-link {{ Request::route()->getName() === 'home' ? 'active' : '' }}"><a href="{{ url('/') }}">home</a></li>
                                 <li class="nav-link {{ Request::route()->getName() === 'destination' ? 'active' : '' }}"><a href="{{ url('/destination') }}">Destination</a></li>
-                                <li class="nav-link {{ Request::route()->getName() === 'packages' ? 'active' : '' }}"><a href="{{ url('/packages') }}">Packages </a></li>
+                                {{-- <li class="nav-link {{ Request::route()->getName() === 'packages' ? 'active' : '' }}"><a href="{{ url('/packages') }}">Packages </a></li> --}}
                                 <li class="nav-link {{ Request::route()->getName() === 'special offers' ? 'active' : '' }}"><a href="{{ url('/special offers') }}">Special Offers</a></li>
                                 <li class="nav-link {{ Request::route()->getName() === 'blog' ? 'active' : '' }}"><a href="{{ url('/blog') }}">blog</a></li>
                                 <li class="nav-link {{ Request::route()->getName() === 'subscription' ? 'active' : '' }}"><a href="{{ url('/subscription') }}">subscription</a></li>
