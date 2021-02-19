@@ -36,13 +36,13 @@
                   <h1 class="display-4">{{$package->title}}</h1>
 
                   <dl class="row">
-                    <dt class="col-sm-3">Package Type</dt>
+                    <dt class="col-sm-3 text-primary">Package Type</dt>
                     <dd class="col-sm-9 lead">{{$package->type}}</dd>
                   
-                    <dt class="col-sm-3">Package Description</dt>
+                    <dt class="col-sm-3 text-primary">Package Description</dt>
                     <dd class="col-sm-9 lead">{{$package->description}}</dd>
                   
-                    <dt class="col-sm-3">Tour Place Description</dt>
+                    <dt class="col-sm-3 text-primary">Tour Place Description</dt>
                     <dd class="col-sm-9 lead">{{$place->description}}</dd>
 
                   </dl>
@@ -55,13 +55,13 @@
                         <div class="card-body">
                           <h5 class="display-5 pb-2 text-center font-weight-bold">Place</h5>
                           <dl class="row">
-                            <dt class="col-sm-4">Name:</dt>
+                            <dt class="col-sm-4 text-primary">Name:</dt>
                             <dd class="col-sm-8">{{$place->name}}</dd>
                           
-                            <dt class="col-sm-4">Address:</dt>
+                            <dt class="col-sm-4 text-primary">Address:</dt>
                             <dd class="col-sm-8">{{$place->address}}</dd>
                           
-                            <dt class="col-sm-4">Charges:</dt>
+                            <dt class="col-sm-4 text-primary">Charges:</dt>
                             <dd class="col-sm-8">{{$place->charges}}</dd>
 
                           </dl>
@@ -72,16 +72,16 @@
                         <div class="card-body">
                           <h5 class="display-5 pb-2 text-center font-weight-bold">Hotel</h5>
                           <dl class="row">
-                            <dt class="col-sm-4">Name:</dt>
+                            <dt class="col-sm-4 text-primary">Name:</dt>
                             <dd class="col-sm-8">{{$hotel->name}}</dd>
                           
-                            <dt class="col-sm-4">Type:</dt>
+                            <dt class="col-sm-4 text-primary">Type:</dt>
                             <dd class="col-sm-8">{{$hotel->type}}</dd>
                           
-                            <dt class="col-sm-4">Address:</dt>
+                            <dt class="col-sm-4 text-primary">Address:</dt>
                             <dd class="col-sm-8">{{$hotel->address}}</dd>
                           
-                            <dt class="col-sm-4">Charges:</dt>
+                            <dt class="col-sm-4 text-primary">Charges:</dt>
                             <dd class="col-sm-8">{{$hotel->charges}}</dd>
                           </dl>
                         </div>
@@ -91,10 +91,10 @@
                         <div class="card-body">
                           <h5 class="display-5 pb-2 text-center font-weight-bold">Transport</h5>
                           <dl class="row">
-                            <dt class="col-sm-4">Type:</dt>
+                            <dt class="col-sm-4 text-primary">Type:</dt>
                             <dd class="col-sm-8">{{$transport->type}}</dd>
                           
-                            <dt class="col-sm-4">Charges:</dt>
+                            <dt class="col-sm-4 text-primary">Charges:</dt>
                             <dd class="col-sm-8">{{$transport->charges}}</dd>
                           </dl>
                         </div>
@@ -106,7 +106,7 @@
                     <a class="btn btn-primary btn-lg" href="#" role="button">Book</a>
                   </p> --}}
 
-                  <p class="lead text-right text-success font-weight-bold" style="font-size: 45px">{{$package->amount}}</p>
+                  <p class="lead text-right text-success font-weight-bold" style="font-size: 45px"><span class="text-primary">Total: </span>{{$package->amount}}</p>
 
                 </div>
                 

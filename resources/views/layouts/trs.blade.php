@@ -141,7 +141,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="" class="nav-link {{ request()->is('trs-payment*') ? 'active' : '' }}">
+            <a href="{{ url('trs-payment')}}" class="nav-link {{ request()->is('trs-payment*') ? 'active' : '' }}">
               <i class="nav-icon fa fa-credit-card"></i>
               <p>
                 Payments
@@ -246,6 +246,10 @@
 
     <!-- page script -->
 <script>
+  $(document).ready(function(){
+    $('[data-toggle="popover"]').popover();   
+  });
+
   $(function () {
     $("#users").DataTable({
       "scrollX": true,

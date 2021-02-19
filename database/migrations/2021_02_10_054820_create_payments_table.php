@@ -17,9 +17,11 @@ class CreatePaymentsTable extends Migration
             $table->bigIncrements('id');
             $table->string('mode');
             $table->string('amount');
+            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('booking_id');
             $table->timestamps();
 
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('booking_id')->references('id')->on('bookings')->onDelete('cascade');
         });
     }

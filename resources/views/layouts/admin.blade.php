@@ -386,6 +386,32 @@
         }
     });
   });
+
+  $(document).ready(function(){
+     $('.dynamic').change(function(){
+        if($(this).val() != ''){
+          var packageid = $('#packageid').val();
+          var travellers_no = $('#travellers_no').val();
+
+          $.ajaxSetup({
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+          });
+
+          $.ajax({
+            url: '{{ route('trs-booking.amountTotal') }}',
+            type: 'post',
+            data:{packageid:packageid, travellers_no:travellers_no},
+            success: function(response){ 
+
+                  $('#amount').val(response.amount);
+
+            }
+         });
+        }
+    });
+  });
   </script>
 </body>
 </html>

@@ -48,7 +48,11 @@
                     @foreach($packages as $package)
                       <tr>
                         <td>{{$package->title}}</td>
-                        <td>{{$package->description}}</td>
+                        <td>{{ substr($package->description, 0, 40) }} 
+                          <a href="#" title="{{$package->description}}" data-toggle="popover" data-trigger="focus" data-placement="right">
+                            <span style="color: blue;"> ...more</span>
+                          </a>
+                        </td>
                         <td>{{$package->type}}</td>
                         <td>{{$package->amount}}</td>
                         <td>{{$package_place[$loop->index]}}</td>

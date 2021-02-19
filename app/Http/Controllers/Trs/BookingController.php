@@ -19,9 +19,15 @@ class BookingController extends Controller
      */
     public function index()
     {
-        $bookings = Booking::all();
+        $bookings = Auth::user()->bookings()->get();
 
-        return view('trs.bookings.index', compact('bookings'));
+        $booking_packages = array();
+
+        foreach ($bookings as $key => $booking) {
+            array_push($booking_packages, $booking->package()->first()->title);
+        }
+
+        return view('trs.bookings.index', compact('bookings','booking_packages'));
     }
 
     /**
@@ -29,11 +35,11 @@ class BookingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        $packages = Package::all();
-
-        return view('trs.bookings.create', compact('packages'));
+        $package = Package::find(decrypt($id));
+        
+        return view('trs.bookings.create', compact('package'));
     }
 
     /**
@@ -49,7 +55,7 @@ class BookingController extends Controller
             'amount' => 'required',
             'from_at' => 'required',
             'to_at' => 'required',
-            'package_id' => 'required',
+            'packageid' => 'required',
           ]);
   
           $booking = Booking::create([
@@ -108,6 +114,16 @@ class BookingController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function cancell($id)
+    {
+        $booking = Booking::find(decrypt($id));
+
+        $booking->status = "cancelled";
+        $booking->save();
+    
+        return $this->index()->with('success','Booking Cancelled successfully.');
     }
 
 

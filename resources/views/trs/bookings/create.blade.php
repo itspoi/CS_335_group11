@@ -36,13 +36,9 @@
                   <div class="form-group row">
                     <label for="packageid" class="col-sm-4 col-form-label text-md-right">Package</label>
                     <div class="col-sm-6">
-                      <select style="width: 100%;" class="dynamic" name="packageid" id="packageid" required>
-                        <option selected>Select Package</option>
-                        @foreach($packages as $package)
-                        <option value="{{$package->id}}">{{$package->title}}</option>
-                        @endforeach
-                    </select>
-
+                    <input type="text" class="form-control @error('packageid') is-invalid @enderror" name="packageid" placeholder="{{$package->title}}" required readonly>
+                    <input type="text" class="form-control @error('packageid') is-invalid @enderror" name="packageid" id="packageid" value="{{$package->id}}" required hidden>
+                    
                       @error('packageid')
                         <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>

@@ -42,8 +42,12 @@ class PackageController extends Controller
     public function show($id)
     {
         $packageid = decrypt($id);
-        $package = Payment::find($packageid);
+        $package = Package::find($packageid);
 
-        return view('trs.packages.show' , compact('package'));
+        $place = $package->place()->first();
+        $transport = $package->transport()->first();
+        $hotel = $package->hotel()->first();
+
+        return view('trs.packages.show' , compact('package','place','transport','hotel'));
     }
 }

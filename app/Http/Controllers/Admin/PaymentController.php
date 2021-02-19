@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use App\Models\Payment;
+use App\Models\Booking;
 use Auth;
 Use Hash;
 
@@ -20,17 +21,33 @@ class PaymentController extends Controller
     {
         $payments = Payment::all();
 
-        return view('admin.payments.index', compact('payments'));
+        $payment_users = array();
+        $payment_packages = array();
+
+        foreach ($payments as $key => $payment) {
+            array_push($payment_users, $payment->user()->first()->name);
+            $booking = Booking::find($payment->booking_id);
+            array_push($payment_packages, $booking->package()->first()->title);
+        }
+
+        return view('admin.payments.index', compact('payments','payment_users','payment_packages'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function create($id)
     {
-        //
+        $booking = Booking::find(decrypt($id));
+
+        $payment = Payment::create([
+            'mode' => "online payment",
+            'amount' => $booking->amount,
+            'user_id' => $booking->user_id,
+            'booking_id' => $booking->id,
+          ]);
+
+        $booking->status = "paid";
+        $booking->save();
+
+        return $this->index()->with('success','Booking Paid successfully.');
     }
 
     /**

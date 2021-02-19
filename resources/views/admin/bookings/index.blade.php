@@ -35,16 +35,31 @@
                 <table id="users" class="table table-hover display nowrap" style="width:100%">
                   <thead>
                   <tr>
+                    <th>ID</th>
                     <th>User</th>
                     <th>Package</th>
+                    <th>Travellers</th>
                     <th>Amount</th>
-                    <th>Payment</th>
                     <th>Status</th>
                     <th>Actions</th>
                   </tr>
                   </thead>
                   <tbody>
-                    
+                    @foreach($bookings as $booking)
+                      <tr>
+                        <td>{{$booking->id}}</td>
+                        <td>{{$booking_users[$loop->index]}}</td>
+                        <td>{{$booking_packages[$loop->index]}}</td>
+                        <td>{{$booking->travellers_no}}</td>
+                        <td>{{$booking->amount}}</td>
+                        <td>{{$booking->status}}</td>
+                        <td> 
+                          <a href="{{url('admin-booking/payment/'.encrypt($booking->id)) }}" class="btn btn-sm btn-info" title="Pay Booking">
+                            <i class="fas fa-credit-card"></i>
+                          </a>
+                        </td>
+                      </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>

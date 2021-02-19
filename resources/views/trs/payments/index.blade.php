@@ -35,16 +35,27 @@
                 <table id="users" class="table table-hover display nowrap" style="width:100%">
                   <thead>
                   <tr>
+                    <th>ID</th>
                     <th>Mode</th>
                     <th>Amount</th>
                     <th>BookingID</th>
-                    <th>User</th>
                     <th>Package</th>
                     <th>Actions</th>
                   </tr>
                   </thead>
                   <tbody>
-                    
+                    @foreach($payments as $payment)
+                      <tr>
+                        <td>{{$payment->id}}</td>
+                        <td>{{$payment->mode}}</td>
+                        <td>{{$payment->amount}}</td>
+                        <td>{{$payment->booking_id}}</td>
+                        <td></td>
+                        <td> 
+                          
+                        </td>
+                      </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>
