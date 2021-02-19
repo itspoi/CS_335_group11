@@ -104,7 +104,7 @@
 
                     <div class="row pt-3">
                       <p class="lead text-left col-sm-6">
-                        <a class="btn btn-primary btn-lg" href="{{url('trs-booking/create/'..encrypt($package->id))}}" role="button">Book</a>
+                        <a class="btn btn-primary btn-lg" href="{{url('trs-booking/create/'.encrypt($package->id))}}" role="button">Book</a>
                       </p>
     
                       <p class="lead text-right text-success font-weight-bold col-sm-6" style="font-size: 45px"><span class="text-primary">Total: </span>{{$package->amount}} Tsh</p>

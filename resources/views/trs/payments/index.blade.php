@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.trs')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -26,7 +26,6 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Payments</h3>
-                <a href="{{url('admin-package/create')}}"><button type="button" class="btn btn-sm btn-outline-primary float-right">New Package</button></a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -50,9 +49,11 @@
                         <td>{{$payment->mode}}</td>
                         <td>{{$payment->amount}}</td>
                         <td>{{$payment->booking_id}}</td>
-                        <td></td>
+                        <td>{{$payment_packages[$loop->index]}}</td>
                         <td> 
-                          
+                          <a href="{{url('trs-payment/receipt/'.encrypt($payment->id) )}}" class="btn btn-sm btn-primary" title="Show Receipt">
+                            <i class="fas fa-file"></i>
+                          </a>
                         </td>
                       </tr>
                     @endforeach

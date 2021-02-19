@@ -74,9 +74,9 @@
           <i class="fas fa-th-large"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="" class="dropdown-item">
+          {{-- <a href="" class="dropdown-item">
             <i class="fas fa-comments mr-2"></i> Tourism
-          </a>
+          </a> --}}
           <div class="dropdown-divider"></div>
           <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item">
             <i class="fas fa-sign-out-alt mr-2"></i> Logout

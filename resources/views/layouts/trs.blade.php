@@ -74,7 +74,7 @@
           <i class="fas fa-th-large"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="" class="dropdown-item">
+          <a href="{{ url("trs-profile")}}" class="dropdown-item">
             <i class="fas fa-user mr-2"></i> Profile
           </a>
           <div class="dropdown-divider"></div>
@@ -149,10 +149,10 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="" class="nav-link {{ request()->is('user-setting*') ? 'active' : '' }}">
+            <a href="{{ url('trs-profile')}}" class="nav-link {{ request()->is('trs-profile*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-cog"></i>
               <p>
-                Settings
+                Profile
               </p>
             </a>
           </li>
@@ -302,6 +302,11 @@
             }
          });
         }
+    });
+  });
+  $(document).ready(function(){
+    $('.print').on('click' , function(e){
+      $.print("#printable");
     });
   });
   </script>
