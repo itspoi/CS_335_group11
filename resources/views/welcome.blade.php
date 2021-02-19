@@ -65,7 +65,7 @@
                         <div class="col-sm-2">
                             <div class="logo">
                                 <a href="{{ url('/') }}" >
-                                    Tour <span>Gent</span>
+                                    Tourism <span>Reservation</span>
                                 </a>
                             </div><!-- /.logo-->
                         </div><!-- /.col-->
@@ -175,12 +175,18 @@
         <section id="pack" class="packages">
             <div class="container">
                 <div class="gallary-header text-center">
+                    
                     <h2>
                         special packages
                     </h2>
                     <p>
-                        Welcome to our special packages for just you.
+                        Welcome to our special packages for just you. 
                     </p>
+                    @guest
+                    <h3 style="padding-top: 10px;">
+                        Login/Register to book your tour package
+                    </h3>
+                    @endguest
                 </div><!--/.gallery-header-->
                 <div class="packages-content">
                     <div class="row">
@@ -218,9 +224,11 @@
         
 
                                     <div class="about-btn">
+                                        @auth
                                         <button  class="about-view packages-btn">
                                             book now
                                         </button>
+                                        @endauth
                                     </div><!--/.about-btn-->
                                 </div><!--/.single-package-item-txt-->
                             </div><!--/.single-package-item-->
@@ -261,9 +269,11 @@
                                         </p>
                                     </div><!--/.packages-review-->
                                     <div class="about-btn">
+                                        @auth
                                         <button  class="about-view packages-btn">
                                             book now
                                         </button>
+                                        @endauth
                                     </div><!--/.about-btn-->
                                 </div><!--/.single-package-item-txt-->
                             </div><!--/.single-package-item-->
@@ -300,9 +310,11 @@
                                         </p>
                                     </div><!--/.packages-review-->
                                     <div class="about-btn">
+                                        @auth
                                         <button  class="about-view packages-btn">
                                             book now
                                         </button>
+                                        @endauth
                                     </div><!--/.about-btn-->
                                 </div><!--/.single-package-item-txt-->
                             </div><!--/.single-package-item-->
@@ -339,9 +351,11 @@
                                         </p>
                                     </div><!--/.packages-review-->
                                     <div class="about-btn">
+                                        @auth
                                         <button  class="about-view packages-btn">
                                             book now
                                         </button>
+                                        @endauth
                                     </div><!--/.about-btn-->
                                 </div><!--/.single-package-item-txt-->
                             </div><!--/.single-package-item-->
@@ -378,9 +392,11 @@
                                         </p>
                                     </div><!--/.packages-review-->
                                     <div class="about-btn">
+                                        @auth
                                         <button  class="about-view packages-btn">
                                             book now
                                         </button>
+                                        @endauth
                                     </div><!--/.about-btn-->
                                 </div><!--/.single-package-item-txt-->
                             </div><!--/.single-package-item-->
@@ -417,9 +433,11 @@
                                         </p>
                                     </div><!--/.packages-review-->
                                     <div class="about-btn">
+                                        @auth
                                         <button  class="about-view packages-btn">
                                             book now
                                         </button>
+                                        @endauth
                                     </div><!--/.about-btn-->
                                 </div><!--/.single-package-item-txt-->
                             </div><!--/.single-package-item-->
