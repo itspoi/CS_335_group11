@@ -54,6 +54,7 @@ class HomeController extends Controller
      */
     public function trsIndex()
     {
+        
         $bookings_count = Auth::user()->bookings()->count();
         $payments_count = Auth::user()->payments()->sum('amount');
 

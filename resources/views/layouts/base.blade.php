@@ -41,7 +41,6 @@
 
 </head>
 <body>
-    @include('include.navbar')
 
     @yield('content')
 
@@ -101,5 +100,7 @@
     </script>
 
     @yield('js')
+
+    
 </body>
 </html>

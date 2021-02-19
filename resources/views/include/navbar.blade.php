@@ -6,7 +6,7 @@
                 <div class="col-sm-2">
                     <div class="logo">
                         <a href="{{ url('/') }}" >
-                            Tourism<span>Management</span>
+                            Tour <span>Gent</span>
                         </a>
                     </div><!-- /.logo-->
                 </div><!-- /.col-->
@@ -35,24 +35,27 @@
                                 @else
 
 
-                                <li class="smooth-menu"><a href="#home">home</a></li>
-                                <li class="smooth-menu"><a href="#gallery">Destination</a></li>
-                                <li class="smooth-menu"><a href="#pack">Packages </a></li>
-                                <li class="smooth-menu"><a href="#spo">Special Offers</a></li>
-                                <li class="smooth-menu"><a href="#blog">blog</a></li>
-                                <li class="smooth-menu"><a href="#subs">subscription</a></li>
+                                <li class="nav-link {{ Request::route()->getName() === 'home' ? 'active' : '' }}"><a href="{{ url('/') }}">home</a></li>
+                                <li class="nav-link {{ Request::route()->getName() === 'destination' ? 'active' : '' }}"><a href="{{ url('/destination') }}">Destination</a></li>
+                                {{-- <li class="nav-link {{ Request::route()->getName() === 'packages' ? 'active' : '' }}"><a href="{{ url('/packages') }}">Packages </a></li> --}}
+                                <li class="nav-link {{ Request::route()->getName() === 'special offers' ? 'active' : '' }}"><a href="{{ url('/special offers') }}">Special Offers</a></li>
+                                <li class="nav-link {{ Request::route()->getName() === 'blog' ? 'active' : '' }}"><a href="{{ url('/blog') }}">blog</a></li>
+                                <li class="nav-link {{ Request::route()->getName() === 'subscription' ? 'active' : '' }}"><a href="{{ url('/subscription') }}">subscription</a></li>
                                 <li>
-                                    <button class="book-btn">book now
+                                    <button class="book-btn">
+
+                                            book now
+
                                     </button>
                                 </li><!--/.project-btn-->
 
                                 <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();"><span class="fa fa-user"></span> Log Out</a>
-                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                     @csrf
-                                 </form>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
                                 </li>
-                                     @endguest
+                                    @endguest
 
                             </ul>
                         </div><!-- /.navbar-collapse -->

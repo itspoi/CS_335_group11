@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -103,4 +104,20 @@ Route::get('trs-booking/payment/{id}', 'App\Http\Controllers\Trs\PaymentControll
 Route::get('trs-payment', 'App\Http\Controllers\Trs\PaymentController@index');
 Route::get('trs-payment/create', 'App\Http\Controllers\Trs\PaymentController@create');
 Route::post('trs-payment/store', 'App\Http\Controllers\Trs\PaymentController@store')->name('trs-payment.store');
+
+// this is the pages Controller
+Route::get('/', 'App\Http\Controllers\PageController@getHome')->name('welcome');
+
+Route::get('/destination', 'App\Http\Controllers\PageController@getDestination')->name('destination');
+
+Route::get('/packages', 'App\Http\Controllers\PageController@getPackages')->name('packages');
+
+Route::get('/special offers', 'App\Http\Controllers\PageController@getSpecialOffers')->name('special offers');
+
+Route::get('/blog', 'App\Http\Controllers\PageController@getBlog')->name('blog');
+
+Route::get('/subscription', 'App\Http\Controllers\PageController@getSubscription')->name('subscription');
+
+Route::get('/book now', 'App\Http\Controllers\PageController@getBookNow')->name('book now');
+
 Route::get('trs-payment/receipt/{id}', 'App\Http\Controllers\Trs\PaymentController@receipt');
