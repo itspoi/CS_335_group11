@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use App\Models\Payment;
+use App\Models\Booking;
+use App\Models\Package;
 use Auth;
 Use Hash;
 
@@ -18,9 +20,16 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        $payments = Payment::all();
+        $payments = Auth::user()->payments()->get();
 
-        return view('trs.payments.index', compact('payments'));
+        $payment_packages = array();
+
+        foreach ($payments as $key => $payment) {
+            $booking = Booking::find($payment->booking_id);
+            array_push($payment_packages, $booking->package()->first()->title);
+        }
+
+        return view('trs.payments.index', compact('payments','payment_packages'));
     }
 
     /**
@@ -28,9 +37,21 @@ class PaymentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $booking = Booking::find(decrypt($id));
+
+        $payment = Payment::create([
+            'mode' => "online payment",
+            'amount' => $booking->amount,
+            'user_id' => Auth::user()->id,
+            'booking_id' => $booking->id,
+          ]);
+
+        $booking->status = "paid";
+        $booking->save();
+
+        return $this->index()->with('success','Booking Paid successfully.');
     }
 
     /**
@@ -50,12 +71,14 @@ class PaymentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function receipt($id)
     {
-        $paymentid = decrypt($id);
-        $payment = Payment::find($paymentid);
+        $payment = Payment::find(decrypt($id));
+        $booking = $payment->booking()->first();
+        $package = Package::find($booking->package_id);
+        $user = Auth::user();
 
-        return view('trs.payments.show' , compact('payment'));
+        return view('trs.payments.receipt' , compact('payment','user','package','booking'));
     }
 
     /**

@@ -20,7 +20,17 @@ class PackageController extends Controller
     {
         $packages = Package::all();
 
-        return view('trs.packages.index', compact('packages'));
+        $package_place = array();
+        $package_transport = array();
+        $package_hotel = array();
+
+        foreach ($packages as $key => $package) {
+            array_push($package_place, $package->place()->first()->name);
+            array_push($package_transport, $package->transport()->first()->type);
+            array_push($package_hotel, $package->hotel()->first()->type);
+        }
+
+        return view('trs.packages.index', compact('packages','package_place','package_transport','package_hotel'));
     }
 
     /**
@@ -32,8 +42,12 @@ class PackageController extends Controller
     public function show($id)
     {
         $packageid = decrypt($id);
-        $package = Payment::find($packageid);
+        $package = Package::find($packageid);
 
-        return view('trs.packages.show' , compact('package'));
+        $place = $package->place()->first();
+        $transport = $package->transport()->first();
+        $hotel = $package->hotel()->first();
+
+        return view('trs.packages.show' , compact('package','place','transport','hotel'));
     }
 }

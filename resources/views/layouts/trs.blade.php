@@ -74,7 +74,7 @@
           <i class="fas fa-th-large"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="" class="dropdown-item">
+          <a href="{{ url("trs-profile")}}" class="dropdown-item">
             <i class="fas fa-user mr-2"></i> Profile
           </a>
           <div class="dropdown-divider"></div>
@@ -141,7 +141,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="" class="nav-link {{ request()->is('trs-payment*') ? 'active' : '' }}">
+            <a href="{{ url('trs-payment')}}" class="nav-link {{ request()->is('trs-payment*') ? 'active' : '' }}">
               <i class="nav-icon fa fa-credit-card"></i>
               <p>
                 Payments
@@ -149,10 +149,10 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="" class="nav-link {{ request()->is('user-setting*') ? 'active' : '' }}">
+            <a href="{{ url('trs-profile')}}" class="nav-link {{ request()->is('trs-profile*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-cog"></i>
               <p>
-                Settings
+                Profile
               </p>
             </a>
           </li>
@@ -246,6 +246,10 @@
 
     <!-- page script -->
 <script>
+  $(document).ready(function(){
+    $('[data-toggle="popover"]').popover();   
+  });
+
   $(function () {
     $("#users").DataTable({
       "scrollX": true,
@@ -272,6 +276,37 @@
     //Initialize Select2 Elements
     $('.select2bs4').select2({
       theme: 'bootstrap4'
+    });
+  });
+
+  $(document).ready(function(){
+     $('.dynamic').change(function(){
+        if($(this).val() != ''){
+          var packageid = $('#packageid').val();
+          var travellers_no = $('#travellers_no').val();
+
+          $.ajaxSetup({
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+          });
+
+          $.ajax({
+            url: '{{ route('trs-booking.amountTotal') }}',
+            type: 'post',
+            data:{packageid:packageid, travellers_no:travellers_no},
+            success: function(response){ 
+
+                  $('#amount').val(response.amount);
+
+            }
+         });
+        }
+    });
+  });
+  $(document).ready(function(){
+    $('.print').on('click' , function(e){
+      $.print("#printable");
     });
   });
   </script>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use App\Models\Booking;
+use App\Models\Package;
 use Auth;
 Use Hash;
 
@@ -18,9 +19,15 @@ class BookingController extends Controller
      */
     public function index()
     {
-        $bookings = Booking::all();
+        $bookings = Auth::user()->bookings()->get();
 
-        return view('trs.bookings.index', compact('bookings'));
+        $booking_packages = array();
+
+        foreach ($bookings as $key => $booking) {
+            array_push($booking_packages, $booking->package()->first()->title);
+        }
+
+        return view('trs.bookings.index', compact('bookings','booking_packages'));
     }
 
     /**
@@ -28,9 +35,11 @@ class BookingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        return view('trs.bookings.create');
+        $package = Package::find(decrypt($id));
+        
+        return view('trs.bookings.create', compact('package'));
     }
 
     /**
@@ -42,13 +51,21 @@ class BookingController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'status' => 'required|string',
-            'user' => 'required|string',
-            'package' => 'required|string',
+            'travellers_no' => 'required',
+            'amount' => 'required',
+            'from_at' => 'required',
+            'to_at' => 'required',
+            'packageid' => 'required',
           ]);
   
           $booking = Booking::create([
-            'status' => $request['status'],
+            'travellers_no' => $request['travellers_no'],
+            'amount' => $request['amount'],
+            'from_at' => $request['from_at'],
+            'to_at' => $request['to_at'],
+            'status' => "pending",
+            'user_id' => Auth::user()->id,
+            'package_id' => $request['packageid'],
           ]);
 
           return $this->index()->with('success','Booking added successfully.');
@@ -97,5 +114,29 @@ class BookingController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function cancell($id)
+    {
+        $booking = Booking::find(decrypt($id));
+
+        $booking->status = "cancelled";
+        $booking->save();
+    
+        return $this->index()->with('success','Booking Cancelled successfully.');
+    }
+
+
+    public function amountTotal(Request $request)
+    {
+        $packageid = $request->get('packageid');
+        $travellers_no = $request->get('travellers_no');
+
+        $package = Package::find($packageid);
+
+        $total_amount = $package->amount * $travellers_no;
+
+        return response()->json(['amount' => $total_amount]);
+
     }
 }

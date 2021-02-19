@@ -49,12 +49,15 @@
                     @foreach($packages as $package)
                       <tr>
                         <td>{{$package->title}}</td>
-                        <td>{{$package->description}}</td>
+                        <td>{{ substr($package->description, 0, 40) }} 
+                          <a href="#" title="{{$package->description}}" data-toggle="popover" data-trigger="focus" data-placement="right">
+                            <span style="color: blue;"> ...more</span>
+                          </a></td>
                         <td>{{$package->type}}</td>
                         <td>{{$package->amount}}</td>
-                        <td>{{$package->place_id}}</td>
-                        <td>{{$package->hotel_id}}</td>
-                        <td>{{$package->transport_id}}</td>
+                        <td>{{$package_place[$loop->index]}}</td>
+                        <td>{{$package_hotel[$loop->index]}}</td>
+                        <td>{{$package_transport[$loop->index]}}</td>
                         <td> 
                           <a href="{{url('admin-package/show/'.encrypt($package->id)) }}" class="btn btn-sm btn-info" title="Show Package">
                             <i class="fas fa-eye"></i>
