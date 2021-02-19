@@ -49,7 +49,7 @@
                   <div class="form-group row">
                     <label for="description" class="col-sm-4 col-form-label text-md-right">Description</label>
                     <div class="col-sm-6">
-                      <input type="text" class="form-control @error('description') is-invalid @enderror" name="description" id="description" placeholder="Description" required>
+                      <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description" cols="30" rows="6" required></textarea>
 
                       @error('description')
                         <span class="invalid-feedback" role="alert">
@@ -62,7 +62,16 @@
                   <div class="form-group row">
                     <label for="type" class="col-sm-4 col-form-label text-md-right">Type</label>
                     <div class="col-sm-6">
-                      <input type="text" class="form-control @error('type') is-invalid @enderror" name="type" id="type" placeholder="Type" required>
+                      <select style="width: 100%;" class="form-control @error('type') is-invalid @enderror" name="type" id="type" required>
+                        <option selected>Select Package Type</option>
+                        <option value="Wildlife">Adventure</option>
+                        <option value="Wildlife">Wildlife</option>
+                        <option value="Family">Family</option>
+                        <option value="Wellness">Wellness</option>
+                        <option value="Cultural">Cultural</option>
+                        <option value="Pilgrimage">Pilgrimage</option>
+                        <option value="Honeymoon">Honeymoon</option>
+                    </select>
 
                       @error('type')
                         <span class="invalid-feedback" role="alert">
@@ -73,22 +82,9 @@
                   </div>
 
                   <div class="form-group row">
-                    <label for="amount" class="col-sm-4 col-form-label text-md-right">Amount</label>
-                    <div class="col-sm-6">
-                      <input type="text" class="form-control @error('amount') is-invalid @enderror" name="amount" id="amount" placeholder="Amount" required>
-
-                      @error('amount')
-                        <span class="invalid-feedback" role="alert">
-                          <strong>{{ $message }}</strong>
-                        </span>
-                      @enderror
-                    </div>
-                  </div>
-
-                  <div class="form-group row">
                     <label for="hotelid" class="col-sm-4 col-form-label text-md-right">Hotel</label>
                     <div class="col-sm-6">
-                      <select style="width: 100%;" name="hotelid" id="hotelid" required>
+                      <select style="width: 100%;" class="dynamic" name="hotelid" id="hotelid" required>
                         <option selected>Select Hotel</option>
                         @foreach($hotels as $hotel)
                         <option value="{{$hotel->id}}">{{$hotel->name}}</option>
@@ -106,7 +102,7 @@
                   <div class="form-group row">
                     <label for="transportid" class="col-sm-4 col-form-label text-md-right">Transport</label>
                     <div class="col-sm-6">
-                      <select style="width: 100%;" name="transportid" id="transportid" required>
+                      <select style="width: 100%;" class="dynamic" name="transportid" id="transportid" required>
                         <option selected>Select Transport</option>
                         @foreach($transports as $transport)
                         <option value="{{$transport->id}}">{{$transport->type}}</option>
@@ -124,7 +120,7 @@
                   <div class="form-group row">
                     <label for="placeid" class="col-sm-4 col-form-label text-md-right">Place</label>
                     <div class="col-sm-6">
-                      <select style="width: 100%;" name="placeid" id="placeid" required>
+                      <select style="width: 100%;" class="dynamic" name="placeid" id="placeid" required>
                           <option selected>Select Place</option>
                           @foreach($places as $place)
                           <option value="{{$place->id}}">{{$place->name}}</option>
@@ -132,6 +128,19 @@
                       </select>
 
                       @error('placeid')
+                        <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="amount" class="col-sm-4 col-form-label text-md-right">Amount</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control @error('amount') is-invalid @enderror" name="amount" id="amount" placeholder="Amount" required>
+
+                      @error('amount')
                         <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
                         </span>

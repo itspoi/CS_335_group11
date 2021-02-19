@@ -270,8 +270,16 @@
 
     <!-- page script -->
 <script>
+  $(document).ready(function(){
+    $('[data-toggle="popover"]').popover();   
+  });
+
   $(function () {
     $("#users").DataTable({
+      "scrollX": true,
+      "aaSorting": []
+    });
+    $("#places").DataTable({
       "scrollX": true,
       "aaSorting": []
     });
@@ -350,6 +358,33 @@
       options: lineChartOptions
     })
 
+  });
+
+  $(document).ready(function(){
+     $('.dynamic').change(function(){
+        if($(this).val() != ''){
+          var hotelid = $('#hotelid').val();
+          var transportid = $('#transportid').val();
+          var placeid = $('#placeid').val();
+
+          $.ajaxSetup({
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+          });
+
+          $.ajax({
+            url: '{{ route('admin-package.amountTotal') }}',
+            type: 'post',
+            data:{hotelid:hotelid, transportid:transportid, placeid:placeid},
+            success: function(response){ 
+
+                  $('#amount').val(response.amount);
+
+            }
+         });
+        }
+    });
   });
   </script>
 </body>

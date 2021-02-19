@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use App\Models\Booking;
+use App\Models\Package;
 use Auth;
 Use Hash;
 
@@ -30,7 +31,9 @@ class BookingController extends Controller
      */
     public function create()
     {
-        return view('trs.bookings.create');
+        $packages = Package::all();
+
+        return view('trs.bookings.create', compact('packages'));
     }
 
     /**
@@ -42,13 +45,21 @@ class BookingController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'status' => 'required|string',
-            'user' => 'required|string',
-            'package' => 'required|string',
+            'travellers_no' => 'required',
+            'amount' => 'required',
+            'from_at' => 'required',
+            'to_at' => 'required',
+            'package_id' => 'required',
           ]);
   
           $booking = Booking::create([
-            'status' => $request['status'],
+            'travellers_no' => $request['travellers_no'],
+            'amount' => $request['amount'],
+            'from_at' => $request['from_at'],
+            'to_at' => $request['to_at'],
+            'status' => "pending",
+            'user_id' => Auth::user()->id,
+            'package_id' => $request['packageid'],
           ]);
 
           return $this->index()->with('success','Booking added successfully.');
@@ -97,5 +108,19 @@ class BookingController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function amountTotal(Request $request)
+    {
+        $packageid = $request->get('packageid');
+        $travellers_no = $request->get('travellers_no');
+
+        $package = Package::find($packageid);
+
+        $total_amount = $package->amount * $travellers_no;
+
+        return response()->json(['amount' => $total_amount]);
+
     }
 }

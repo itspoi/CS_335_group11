@@ -35,10 +35,12 @@
                 <table id="users" class="table table-hover display nowrap" style="width:100%">
                   <thead>
                   <tr>
-                    <th>User</th>
+                    <th>ID</th>
                     <th>Package</th>
                     <th>Amount</th>
                     <th>Payment</th>
+                    <th>From</th>
+                    <th>To</th>
                     <th>Status</th>
                     <th>Actions</th>
                   </tr>

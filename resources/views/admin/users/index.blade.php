@@ -51,7 +51,11 @@
                         <td>{{$user->email}}</td>
                         <td>{{$user->address}}</td>
                         <td>
-                          
+                          @if(!empty($user->getRoleNames()))
+                            @foreach($user->getRoleNames() as $v)
+                               <label class="badge badge-success">{{ $v }}</label>
+                            @endforeach
+                          @endif
                         </td>
                         <td> 
                           <a href="{{url('admin-user/edit/'.encrypt($user->id)) }}" class="btn btn-sm btn-info" title="Edit User">

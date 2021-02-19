@@ -36,6 +36,7 @@ Route::get('admin-package/show/{id}', 'App\Http\Controllers\Admin\PackageControl
 Route::get('admin-package/edit/{id}', 'App\Http\Controllers\Admin\PackageController@edit');
 Route::post('admin-package/update/{id}', 'App\Http\Controllers\Admin\PackageController@update')->name('admin-package.update');
 Route::delete('admin-package/destroy/{id}' , 'App\Http\Controllers\Admin\PackageController@destroy');
+Route::post('admin-package/amountTotal', 'App\Http\Controllers\Admin\PackageController@amountTotal')->name('admin-package.amountTotal');
 
 Route::get('admin-user', 'App\Http\Controllers\Admin\UserController@index');
 Route::get('admin-user/create', 'App\Http\Controllers\Admin\UserController@create');
@@ -83,10 +84,12 @@ Route::get('trs-home', 'App\Http\Controllers\HomeController@trsIndex')->name('tr
 
 Route::get('trs-package', 'App\Http\Controllers\Trs\PackageController@index');
 Route::get('trs-package/show/{id}', 'App\Http\Controllers\Trs\PackageController@show');
+Route::get('trs-package/booking/{id}', 'App\Http\Controllers\Trs\PackageController@show');
 
 Route::get('trs-booking', 'App\Http\Controllers\Trs\BookingController@index');
 Route::get('trs-booking/create', 'App\Http\Controllers\Trs\BookingController@create');
 Route::post('trs-booking/store', 'App\Http\Controllers\Trs\BookingController@store')->name('trs-booking.store');
+Route::post('trs-booking/amountTotal', 'App\Http\Controllers\Trs\BookingController@amountTotal')->name('trs-booking.amountTotal');
 
 Route::get('trs-payment', 'App\Http\Controllers\Trs\PaymentController@index');
 Route::get('trs-payment/create', 'App\Http\Controllers\Trs\PaymentController@create');

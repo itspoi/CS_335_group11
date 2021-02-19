@@ -45,7 +45,22 @@
                   </tr>
                   </thead>
                   <tbody>
-                    
+                    @foreach($packages as $package)
+                      <tr>
+                        <td>{{$package->title}}</td>
+                        <td>{{$package->description}}</td>
+                        <td>{{$package->type}}</td>
+                        <td>{{$package->amount}}</td>
+                        <td>{{$package_place[$loop->index]}}</td>
+                        <td>{{$package_hotel[$loop->index]}}</td>
+                        <td>{{$package_transport[$loop->index]}}</td>
+                        <td> 
+                          <a href="{{url('trs-package/show/'.encrypt($package->id)) }}" class="btn btn-sm btn-info" title="Show Package">
+                            <i class="fas fa-eye"></i>
+                          </a>
+                        </td>
+                      </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>
