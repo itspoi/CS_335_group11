@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use App\Models\Booking;
+use App\Models\Package;
+use App\Models\User;
 use Auth;
 Use Hash;
 
@@ -20,7 +22,15 @@ class BookingController extends Controller
     {
         $bookings = Booking::all();
 
-        return view('admin.bookings.index', compact('bookings'));
+        $booking_users = array();
+        $booking_packages = array();
+
+        foreach ($bookings as $key => $booking) {
+            array_push($booking_users, $booking->user()->first()->name);
+            array_push($booking_packages, $booking->package()->first()->title);
+        }
+
+        return view('admin.bookings.index', compact('bookings','booking_users','booking_packages'));
     }
 
     /**
@@ -30,7 +40,10 @@ class BookingController extends Controller
      */
     public function create()
     {
-        return view('admin.bookings.create');
+        $packages = Package::all();
+        $users = User::all();
+
+        return view('admin.bookings.create', compact('packages','users'));
     }
 
     /**
@@ -41,14 +54,22 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'status' => 'required|string',
-            'user' => 'required|string',
-            'package' => 'required|string',
+          $this->validate($request, [
+            'travellers_no' => 'required',
+            'amount' => 'required',
+            'from_at' => 'required',
+            'to_at' => 'required',
+            'packageid' => 'required',
           ]);
   
           $booking = Booking::create([
-            'status' => $request['status'],
+            'travellers_no' => $request['travellers_no'],
+            'amount' => $request['amount'],
+            'from_at' => $request['from_at'],
+            'to_at' => $request['to_at'],
+            'status' => "pending",
+            'user_id' => $request['userid'],
+            'package_id' => $request['packageid'],
           ]);
 
           return $this->index()->with('success','Booking added successfully.');

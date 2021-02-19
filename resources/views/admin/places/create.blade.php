@@ -36,7 +36,7 @@
                   <div class="form-group row">
                     <label for="name" class="col-sm-4 col-form-label text-md-right">Name</label>
                     <div class="col-sm-6">
-                      <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" placeholder="Full Name" required>
+                      <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" placeholder="Name" required>
 
                       @error('name')
                         <span class="invalid-feedback" role="alert">
@@ -49,7 +49,7 @@
                   <div class="form-group row">
                     <label for="description" class="col-sm-4 col-form-label text-md-right">Description</label>
                     <div class="col-sm-6">
-                      <input type="text" class="form-control @error('description') is-invalid @enderror" name="description" id="description" placeholder="Description" required>
+                      <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description" cols="30" rows="6" required></textarea>
 
                       @error('description')
                         <span class="invalid-feedback" role="alert">
@@ -86,7 +86,7 @@
                   </div>
 
                   <div class="form-group row">
-                    <label for="picture" class="col-sm-4 col-form-label text-md-right">picture</label>
+                    <label for="picture" class="col-sm-4 col-form-label text-md-right">Picture</label>
                     <div class="col-sm-6">
                       <input type="file" class="form-control @error('type') is-invalid @enderror" name="picture" id="picture" placeholder="picture" required>
 

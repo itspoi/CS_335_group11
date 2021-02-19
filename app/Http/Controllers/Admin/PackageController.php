@@ -23,7 +23,17 @@ class PackageController extends Controller
     {
         $packages = Package::all();
 
-        return view('admin.packages.index', compact('packages'));
+        $package_place = array();
+        $package_transport = array();
+        $package_hotel = array();
+
+        foreach ($packages as $key => $package) {
+            array_push($package_place, $package->place()->first()->name);
+            array_push($package_transport, $package->transport()->first()->type);
+            array_push($package_hotel, $package->hotel()->first()->type);
+        }
+
+        return view('admin.packages.index', compact('packages','package_place','package_transport','package_hotel'));
     }
 
     /**
@@ -82,9 +92,9 @@ class PackageController extends Controller
         $packageid = decrypt($id);
         $package = Package::find($packageid);
 
-        $place = $package->place()->get();
-        $transport = $package->transport()->get();
-        $hotel = $package->hotel()->get();
+        $place = $package->place()->first();
+        $transport = $package->transport()->first();
+        $hotel = $package->hotel()->first();
 
         return view('admin.packages.show' , compact('package','place','transport','hotel'));
     }
@@ -138,5 +148,21 @@ class PackageController extends Controller
         $package->delete(); 
         
         return redirect()->back()->with('success','Package Deleted successfully');
+    }
+
+    public function amountTotal(Request $request)
+    {
+        $placeid = $request->get('placeid');
+        $transportid = $request->get('transportid');
+        $hotelid = $request->get('hotelid');
+
+        $place = Place::find($placeid);
+        $transport = Transport::find($transportid);
+        $hotel = Hotel::find($hotelid);
+
+        $total_amount = $place->charges + $transport->charges + $hotel->charges;
+
+        return response()->json(['amount' => $total_amount]);
+
     }
 }

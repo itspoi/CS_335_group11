@@ -29,7 +29,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Bookings</span>
-                <span class="info-box-number"></span>
+                <span class="info-box-number">{{ $bookings_count }}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -42,7 +42,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Payments</span>
-                <span class="info-box-number"></span>
+                <span class="info-box-number">{{ $payments_count }}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -80,13 +80,25 @@
                     <tr>
                       <th>ID</th>
                       <th>Package</th>
+                      <th>Travellers</th>
                       <th>Amount</th>
                       <th>status</th>
-                      <th>Date</th>
+                      <th>From Date</th>
+                      <th>To Date</th>
                     </tr>
                     </thead>
                     <tbody>
-                      
+                      @foreach($bookings as $booking)
+                        <tr>
+                          <td>{{$booking->id}}</td>
+                          <td>{{$booking_packages[$loop->index]}}</td>
+                          <td>{{$booking->travellers_no}}</td>
+                          <td>{{$booking->amount}}</td>
+                          <td>{{$booking->status}}</td>
+                          <td>{{$booking->from_at}}</td>
+                          <td>{{$booking->to_at}}</td>
+                        </tr>
+                      @endforeach
                     </tbody>
                   </table>
                 </div>

@@ -74,9 +74,9 @@
           <i class="fas fa-th-large"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="" class="dropdown-item">
+          {{-- <a href="" class="dropdown-item">
             <i class="fas fa-comments mr-2"></i> Tourism
-          </a>
+          </a> --}}
           <div class="dropdown-divider"></div>
           <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item">
             <i class="fas fa-sign-out-alt mr-2"></i> Logout
@@ -270,8 +270,16 @@
 
     <!-- page script -->
 <script>
+  $(document).ready(function(){
+    $('[data-toggle="popover"]').popover();   
+  });
+
   $(function () {
     $("#users").DataTable({
+      "scrollX": true,
+      "aaSorting": []
+    });
+    $("#places").DataTable({
       "scrollX": true,
       "aaSorting": []
     });
@@ -350,6 +358,59 @@
       options: lineChartOptions
     })
 
+  });
+
+  $(document).ready(function(){
+     $('.dynamic').change(function(){
+        if($(this).val() != ''){
+          var hotelid = $('#hotelid').val();
+          var transportid = $('#transportid').val();
+          var placeid = $('#placeid').val();
+
+          $.ajaxSetup({
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+          });
+
+          $.ajax({
+            url: '{{ route('admin-package.amountTotal') }}',
+            type: 'post',
+            data:{hotelid:hotelid, transportid:transportid, placeid:placeid},
+            success: function(response){ 
+
+                  $('#amount').val(response.amount);
+
+            }
+         });
+        }
+    });
+  });
+
+  $(document).ready(function(){
+     $('.dynamic').change(function(){
+        if($(this).val() != ''){
+          var packageid = $('#packageid').val();
+          var travellers_no = $('#travellers_no').val();
+
+          $.ajaxSetup({
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+          });
+
+          $.ajax({
+            url: '{{ route('trs-booking.amountTotal') }}',
+            type: 'post',
+            data:{packageid:packageid, travellers_no:travellers_no},
+            success: function(response){ 
+
+                  $('#amount').val(response.amount);
+
+            }
+         });
+        }
+    });
   });
   </script>
 </body>

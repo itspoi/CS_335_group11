@@ -34,6 +34,7 @@
                 <table id="users" class="table table-hover display nowrap" style="width:100%">
                   <thead>
                   <tr>
+                    <th>ID</th>
                     <th>Title</th>
                     <th>Description</th>
                     <th>Type</th>
@@ -45,7 +46,30 @@
                   </tr>
                   </thead>
                   <tbody>
-                    
+                    @foreach($packages as $package)
+                      <tr>
+                        <td>{{$package->id}}</td>
+                        <td>{{$package->title}}</td>
+                        <td>{{ substr($package->description, 0, 40) }} 
+                          <a href="#" title="{{$package->description}}" data-toggle="popover" data-trigger="focus" data-placement="right">
+                            <span style="color: blue;"> ...more</span>
+                          </a>
+                        </td>
+                        <td>{{$package->type}}</td>
+                        <td>{{$package->amount}}</td>
+                        <td>{{$package_place[$loop->index]}}</td>
+                        <td>{{$package_hotel[$loop->index]}}</td>
+                        <td>{{$package_transport[$loop->index]}}</td>
+                        <td> 
+                          <a href="{{url('trs-package/show/'.encrypt($package->id)) }}" class="btn btn-sm btn-info" title="Show Package">
+                            <i class="fas fa-eye"></i>
+                          </a>
+                          <a href="{{url('trs-booking/create/'.encrypt($package->id)) }}" class="btn btn-sm btn-primary" title="Book Package">
+                            <i class="fas fa-wallet"></i>
+                          </a>
+                        </td>
+                      </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>

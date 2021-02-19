@@ -42,4 +42,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Booking')->orderBy('updated_at','DESC');
     }
+
+    public function payments()
+    {
+        return $this->hasMany('App\Models\Payment')->orderBy('updated_at','DESC');
+    }
 }

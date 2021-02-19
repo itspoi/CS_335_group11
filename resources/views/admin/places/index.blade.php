@@ -32,7 +32,7 @@
               <div class="card-body">
                 @include('flash-message')
                 
-                <table id="users" class="table table-hover display nowrap" style="width:100%">
+                <table id="places" class="table table-hover display nowrap" style="width:100%">
                   <thead>
                   <tr>
                     <th>Picture</th>

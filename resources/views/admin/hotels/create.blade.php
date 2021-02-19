@@ -36,7 +36,7 @@
                   <div class="form-group row">
                     <label for="name" class="col-sm-4 col-form-label text-md-right">Name</label>
                     <div class="col-sm-6">
-                      <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" placeholder="Full Name" required>
+                      <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" placeholder="Name" required>
 
                       @error('name')
                         <span class="invalid-feedback" role="alert">
@@ -88,7 +88,14 @@
                   <div class="form-group row">
                     <label for="type" class="col-sm-4 col-form-label text-md-right">Type</label>
                     <div class="col-sm-6">
-                      <input type="text" class="form-control @error('type') is-invalid @enderror" name="type" id="type" placeholder="type" required>
+                      <select style="width: 100%;" class="form-control @error('type') is-invalid @enderror" name="type" id="type" required>
+                        <option selected>Select Hotel Type</option>
+                        <option value="1 Star">1 Star</option>
+                        <option value="2 Star">2 Star</option>
+                        <option value="3 Star">3 Star</option>
+                        <option value="4 Star">4 Star</option>
+                        <option value="5 Star">5 Star</option>
+                    </select>
 
                       @error('type')
                         <span class="invalid-feedback" role="alert">
