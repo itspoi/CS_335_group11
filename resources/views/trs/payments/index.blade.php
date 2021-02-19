@@ -26,7 +26,6 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Payments</h3>
-                <a href="{{url('admin-package/create')}}"><button type="button" class="btn btn-sm btn-outline-primary float-right">New Package</button></a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
