@@ -304,6 +304,11 @@
         }
     });
   });
+  $(document).ready(function(){
+    $('.print').on('click' , function(e){
+      $.print("#printable");
+    });
+  });
   </script>
 </body>
 </html>

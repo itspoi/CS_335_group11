@@ -95,3 +95,4 @@ Route::get('trs-booking/cancell/{id}', 'App\Http\Controllers\Trs\BookingControll
 Route::get('trs-payment', 'App\Http\Controllers\Trs\PaymentController@index');
 Route::get('trs-payment/create', 'App\Http\Controllers\Trs\PaymentController@create');
 Route::post('trs-payment/store', 'App\Http\Controllers\Trs\PaymentController@store')->name('trs-payment.store');
+Route::get('trs-payment/receipt/{id}', 'App\Http\Controllers\Trs\PaymentController@receipt');

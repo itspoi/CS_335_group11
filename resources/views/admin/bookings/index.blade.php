@@ -39,6 +39,8 @@
                     <th>User</th>
                     <th>Package</th>
                     <th>Travellers</th>
+                    <th>From Date</th>
+                    <th>To Date</th>
                     <th>Amount</th>
                     <th>Status</th>
                     <th>Actions</th>
@@ -52,6 +54,8 @@
                         <td>{{$booking_packages[$loop->index]}}</td>
                         <td>{{$booking->travellers_no}}</td>
                         <td>{{$booking->amount}}</td>
+                        <td>{{$booking->from_at}}</td>
+                        <td>{{$booking->to_at}}</td>
                         <td>{{$booking->status}}</td>
                         <td> 
                           <a href="{{url('admin-booking/payment/'.encrypt($booking->id)) }}" class="btn btn-sm btn-info" title="Pay Booking">
