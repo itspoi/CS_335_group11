@@ -10,7 +10,7 @@
 | MASSAY,EMMANUEL | 2018-04-01672       | CEIT  |
 
 # PROBLEM STATEMENT
-Many people tends to lose interest in tourism because of the whole process of reservation of hotels and transport as well as lacking of real details on attractiveness of the tour places. Hence the Tourism Reservation System tends to simplify planning and management of the tourism activity to client.
+Many people tend to lose interest in tourism because of the whole process of reservation of hotels and transport as well as lacking of real details on attractiveness of the tour places. Hence the Tourism Reservation System tends to simplify planning and management of the tourism activity to client.
 # INTRODUCTION
 Tourism Reservation System is a system that clients can use to book transport and hotels for their tour. This would greatly aid easen the burden faced by travellers while simultaneously helping tour operators attract customers
 # MAIN OBJECTIVE
